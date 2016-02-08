@@ -1,4 +1,4 @@
 # interactionProgramming
 
 
-Hi geoff!
+Hi geoff! Just start hacking :)
