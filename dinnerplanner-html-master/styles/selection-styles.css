@@ -7,6 +7,10 @@
 
 /* Toggle Styles */
 
+hr {
+    border-color: #BDBDBD;
+}
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -61,15 +65,25 @@
     list-style: none;
 }
 
+.sidebar-nav p {
+    color: #BDBDBD;
+    text-indent: 20px;
+    margin-right: 20px;
+}
+
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
+    display: block;
+    text-decoration: none;
+    color: #999999;
 }
 
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
     color: #999999;
+    padding-right: 20px;
 }
 
 .sidebar-nav li a:hover {
@@ -87,6 +101,7 @@
     height: 65px;
     font-size: 18px;
     line-height: 60px;
+    color: #BDBDBD;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -96,6 +111,12 @@
 .sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
     background: none;
+}
+
+#sidebar-title {
+    color: black;
+    background-color: #BDBDBD;
+    padding-right: 20px;
 }
 
 @media(min-width:768px) {
