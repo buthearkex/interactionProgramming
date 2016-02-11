@@ -3,3 +3,22 @@
     top: 0px;
     width: 100%;
 }
+
+.filter-bar {
+    height: 80px;
+    width: 100%;
+    background-color: bisque;
+}
+
+.back-button {
+    float: right;
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+}
+
+.button-mid {
+    margin-left: auto;
+    margin-right: auto;
+}
