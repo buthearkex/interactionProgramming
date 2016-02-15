@@ -18,7 +18,7 @@ var ExampleView = function (container, model) {
     this.fullMenuList = container.find("#fullMenuList");
     this.totalDinnerCost = container.find("#totalDinnerCost");
     this.confirmDinnerButton = container.find("#confirmDinnerButton");
-    this.removeDishButton = container.find("#removeDishButton"); //this function exists in dinnerModel, so I'm guessing it will be used in View 2?
+    //this.removeDishButton = container.find("#removeDishButton"); //this function exists in dinnerModel, so I'm guessing it will be used in View 2?
 
     //select dish (View 3)
     this.searchBar = container.find("#searchBar");

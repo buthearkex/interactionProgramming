@@ -38,11 +38,11 @@
     </nav>
 
     <div class="filter-bar">My Dinner: 4 people
-        <button type="button" class="btn btn-default back-button">Go back and edit dinner</button>
+        <button type="button" id="overviewBackButton" class="btn btn-default back-button">Go back and edit dinner</button>
     </div>
 
     <div class="container-fluid">
-        <div class="row">
+        <div id="overviewFullMenuList" class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="col-md-3">
@@ -59,7 +59,9 @@
                 </div>
                 <div class="col-md-3 border">
                     <p>Total:</p>
-                    <p>100 SEK</p>
+                    <div id="overviewTotalDinnerCost">
+                        <p>100 SEK</p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3"></div>
@@ -67,7 +69,7 @@
         <div class="row border-up">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <button type="button" class="btn btn-default button-mid">Print Full Recipe</button>
+                <button type="button" id="printRecipeButton" class="btn btn-default button-mid">Print Full Recipe</button>
             </div>
             <div class="col-md-2"></div>
         </div>
