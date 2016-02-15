@@ -17,6 +17,6 @@ console.log(model.getAllIngredients());
 console.log(model.getTotalMenuPrice());*/
 
     //And create the needed controllers and views
-    var exampleView = new ExampleView($("#exampleView"));
+    var exampleView = new ExampleView($("#exampleView"), model);
 
 });
