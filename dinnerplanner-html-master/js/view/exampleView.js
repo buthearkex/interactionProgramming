@@ -109,9 +109,31 @@ var ExampleView = function (container, model) {
     );
   });*/
 
+  //adding food to overview screen
+  var overviewItems = model.getFullMenu();
+  for (var i = 0; i < overviewItems.length; i++) {
+    $('#overviewFullMenuList').append(
+      "<div class='col-md-3'>" +
+      "<img class='img-responsive overview-pic' src='images/" +
+      overviewItems[i].image +
+      "'>" +
+      "<p>" +
+      model.getPriceOfDish(overviewItems[i].id) +
+      " SEK</p>" +
+      "</div>"
+    );
+  }
 
-
-
+  $('#overviewFullMenuList').append(
+    "<div class='col-md-3 border'>" +
+    "<p>Total:</p>" +
+    "<div>" +
+    "<p>" +
+    model.getTotalMenuPrice() +
+    " SEK</p>" +
+    "</div>" +
+    "</div>"
+  );
 
   //adding number of Guests to dinnerPreparation.html
   $("#numberOfGuests").html(model.getNumberOfGuests());

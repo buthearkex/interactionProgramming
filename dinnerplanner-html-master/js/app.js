@@ -5,6 +5,7 @@ $(function () {
   model.addDishToMenu(1);
   model.addDishToMenu(1);
   model.addDishToMenu(100);
+  model.addDishToMenu(200);
 
   //MIKKO'S TESTS
   /*model.setNumberOfGuests(10);

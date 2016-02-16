@@ -91,6 +91,19 @@ var DinnerModel = function () {
     });
   }
 
+  //Mikko's adidtional helper method
+  this.getPriceOfDish = function (id) {
+    var price = 0;
+    dishes.forEach(function (dish) {
+      if (dish.id == id) {
+        dish.ingredients.forEach(function (ingredient) {
+          price += ingredient.price * nbrGuests;
+        });
+      }
+    });
+    return price;
+  }
+
   //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
   //you can use the filter argument to filter out the dish by name or ingredient (use for search)
   //if you don't pass any filter all the dishes will be returned
