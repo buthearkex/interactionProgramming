@@ -77,12 +77,14 @@ var ExampleView = function (container, model) {
   for (var i = 0; i < dishes.length; i++) {
     $('#allDishes').append(
       "<div class='col-md-3'>" +
+      "<a href='food.html'>" +
       "<img class='img-responsive food-pic' src='images/" +
       dishes[i].image +
       "'>" +
       "<h2>" +
       dishes[i].name +
       "</h2>" +
+      "</a>" +
       "<p>" +
       dishes[i].description +
       "</p>" +
@@ -107,5 +109,38 @@ var ExampleView = function (container, model) {
     );
   });*/
 
+
+
+
+
+  //adding number of Guests to dinnerPreparation.html
+  $("#numberOfGuests").html(model.getNumberOfGuests());
+
+  //adding food to final screen
+  var menuItems = model.getFullMenu();
+  console.log(menuItems);
+  for (var i = 0; i < menuItems.length; i++) {
+    $('#printableRecipe').append(
+      "<div class='row'>" +
+      "<div class='col-md-5'>" +
+      "<img class='food-pic' src='images/" +
+      menuItems[i].image +
+      "'>" +
+      "<h3>" +
+      menuItems[i].name +
+      "</h3>" +
+      "<p>" +
+      menuItems[i].description +
+      "</p>" +
+      "</div>" +
+      "<div class='col-md-7'>" +
+      "<h4>PREPARATION</h4>" +
+      "<p>" +
+      menuItems[i].description +
+      "</p>" +
+      "</div>" +
+      "</div>"
+    );
+  }
 
 }

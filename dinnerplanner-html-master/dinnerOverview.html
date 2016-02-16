@@ -10,12 +10,11 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/common-styles.css">
-  <link rel="stylesheet" href="styles/home-styles.css">
+  <link rel="stylesheet" href="styles/overview-styles.css">
 
 </head>
 
 <body>
-  <img class="bg-img" src="images/bg-img.jpg" alt="nice background">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,7 +25,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="home.html">HOMELETTE</a>
+        <a class="navbar-brand" href="#">HOMELETTE</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,23 +37,43 @@
     <!-- /.container-fluid -->
   </nav>
 
-  <section class="container">
-    <div class="row">
+  <div class="filter-bar">My Dinner: 4 people
+    <a href="selectDish.html">Go back and  edit dinner</a>
+  </div>
+
+  <div class="container-fluid">
+    <div id="overviewFullMenuList" class="row">
+      <div class="col-md-3"></div>
       <div class="col-md-6">
-        <div class="text-box">
-          <h3>A Home Dinner Service</h3>
-
-          <div class="line"></div>
-
-          <p>Sweet roll jelly-o cake wafer. Brownie gummies pie ice cream jelly-o chocolate donut fruitcake. Biscuit muffin marshmallow tiramisu. Candy cake candy tart chocolate candy canes. Sweet chupa chups halvah sugar plum caramels. Sesame snaps icing ice cream cupcake candy canes. Pastry fruitcake marzipan. Pie gingerbread cheesecake jelly beans. Jujubes icing bonbon chocolate bar. Marzipan lemon drops cheesecake. Candy cupcake wafer sugar plum bonbon danish halvah. Chocolate cake pudding dessert icing liquorice cupcake dessert sesame snaps. Chocolate toffee caramels.</p>
-
-          <div>Start quicly</div>
-
-          <a id="createNewDinnerButton" class="btn btn-default" href="selectDish.html" role="button">Create new dinner</a>
+        <div class="col-md-3">
+          <img class="img-responsive overview-pic" src="images/bakedbrie.jpg">
+          <p>77.20 SEK</p>
+        </div>
+        <div class="col-md-3">
+          <img class="img-responsive overview-pic" src="images/icecream.jpg">
+          <p>77.20 SEK</p>
+        </div>
+        <div class="col-md-3">
+          <img class="img-responsive overview-pic" src="images/sourdough.jpg">
+          <p>77.20 SEK</p>
+        </div>
+        <div class="col-md-3 border">
+          <p>Total:</p>
+          <div id="overviewTotalDinnerCost">
+            <p>100 SEK</p>
+          </div>
         </div>
       </div>
+      <div class="col-md-3"></div>
     </div>
-  </section>
+    <div class="row border-up">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <a href="dinnerPreparation.html">Print full recipe</a>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -62,14 +81,12 @@
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
   <!-- The application JavaScript code -->
-  <!--DOESNT CALL THE MODEL YET-->
-  <!--<script src="js/app.js"></script>-->
   <script src="js/app.js"></script>
   <script src="js/model/dinnerModel.js"></script>
   <script src="js/view/exampleView.js"></script>
 
-  <script src="js/view/exampleView.js"></script>
 
+  <script src="js/view/exampleView.js"></script>
 </body>
 
 </html>
