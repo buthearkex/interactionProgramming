@@ -58,7 +58,7 @@ var DinnerModel = function () {
         var addedDishType;
         var dishAdded = false;
         dishes.forEach(function (dish) {
-            console.log(dish.id + " " + id);
+            //console.log(dish.id + " " + id);
             if (dish.id == id) {
                 console.log("found dish id " + id);
                 addedDishType = dish.type;

@@ -49,10 +49,10 @@ var ExampleView = function (container, model) {
     this.numberOfGuests.html(model.getNumberOfGuests());
     this.fullMenuList.html(model.getFullMenu());
     this.totalDinnerCost.html(model.getTotalMenuPrice());
-    this.removeDishButton.html(model.removeDishFromMenu());
+    //.html() method writes to the html, so this is not needed, onlu when some functionality is required
+    //this.removeDishButton.html(model.removeDishFromMenu());
 
-    //select dish (View 3)
-    this.allDishes.html(model.getAllDishes()); //takes type and filter parameters (get them from dishTypeSelector)
+
 
     //dish details (View 4)
     this.dishDetails.html(model.getDish()); //takes id parameter
@@ -64,6 +64,26 @@ var ExampleView = function (container, model) {
 
     //instructions screen (View 6)
     this.overviewFullMenuList.html(model.getFullMenu());
+
+
+    //procedural stuff (View 3)
+    console.log(model.getAllDishes());
+    model.getAllDishes().get().forEach(function (dish) {
+        console.log("nakki");
+        this.allDishes.html(
+            "<div class='col-md-3'>" +
+            "<img class='img-responsive food-pic' src='" +
+            dish.image +
+            "'>" +
+            "<h2>" +
+            dish.name +
+            "</h2>" +
+            "<p>" +
+            dish.description +
+            "</p>" +
+            "</div>"
+        );
+    });
 
 
 }
