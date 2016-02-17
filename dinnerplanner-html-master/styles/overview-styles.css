@@ -5,3 +5,7 @@
 .border {
     border-left: 1px solid black;
 }
+
+.float-right {
+    float: right;
+}
