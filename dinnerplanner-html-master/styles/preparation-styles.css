@@ -1,3 +1,7 @@
 .food-pic {
   float: left;
 }
+
+.filter-bar {
+	margin-bottom: 50px;
+}
