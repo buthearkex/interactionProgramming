@@ -116,8 +116,6 @@
     margin-bottom: 20px;
 }
 
-
-
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -156,6 +154,7 @@
 .back-button {
     float: right;
 }
+
 
 /* Toggle Styles */
 
@@ -210,4 +209,23 @@
 .btn {
     background-color: rgb(255, 196, 0);
     border-color: #6E5400;
+}
+
+#pending {
+    float: right;
+    margin-top: -31px;
+}
+
+.dishesList {
+    margin-bottom: 10px;
+}
+
+#totalDinnerCost {
+    float: right;
+}
+
+#confirmDinnerButton {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
