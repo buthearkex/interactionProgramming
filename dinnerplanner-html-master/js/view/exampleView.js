@@ -196,5 +196,4 @@ var ExampleView = function (container, model) {
         );
     }
 
-
 }
