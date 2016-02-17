@@ -8,28 +8,6 @@
     margin-right: auto;
 }
 
-#plusGuest, #minusGuest {
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-#searchBar {
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 30px;
-}
-
-#searchButton {
-	float: left;
-	margin-right: 10px;
-}
-
-.dropdown-toggle {
-	background-color: white;
-	color: black;
-}
-
 .col-md-3 {
 	height: 300px;
 	padding: 10px;
