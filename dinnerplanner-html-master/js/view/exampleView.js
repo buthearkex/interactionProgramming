@@ -178,7 +178,7 @@ var ExampleView = function (container, model) {
 
     $('.nbrGuests').html(model.getNumberOfGuests());
 
-    var ingreds = menuItems[0].ingredients;
+    /*var ingreds = menuItems[0].ingredients;
     for (var i = 0; i < ingreds.length; i++) {
         $('#ingredientList').append(
             "<div class='row'>" +
@@ -194,6 +194,6 @@ var ExampleView = function (container, model) {
             "</div>" +
             "</div>"
         );
-    }
+    }*/
 
 }
