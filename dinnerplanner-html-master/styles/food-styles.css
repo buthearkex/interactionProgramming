@@ -1,4 +1,15 @@
 .recipe {
     border: 1px solid black;
-    background-color: goldenrod;
+    background-color: #FFEA94;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#confirmDishButton {
+	background-color: white;
+}
+
+#dishCost {
+	float: right;
 }
