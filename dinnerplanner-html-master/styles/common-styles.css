@@ -164,7 +164,7 @@
 }
 
 .navbar-default {
-    background-color: rgba(255, 196, 0, 0.5);
+    background-color: #FFEA94;
     border-color: black;
     height: 50px;
     line-height: 50px;
@@ -186,7 +186,7 @@
 }
 
 .search-heading {
-    background-color: rgba(255, 196, 0, 0.5);
+    background-color: #FFEA94;
     border: 1px solid black;
     position: fixed;
     z-index: 2;
