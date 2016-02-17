@@ -166,9 +166,15 @@ var ExampleView = function (container, model) {
 
 
         $('#listedDishes').append(
-
+            "<div class='dishesList'>" +
+            menuItems[i].name +
+            "</div>" +
+            "<span id='pending'>" +
+            model.getPriceOfDish(menuItems[i].id) +
+            "</span>"
         );
     }
 
+    $("#totalDinnerCost").html("SEK " + model.getTotalMenuPrice());
 
 }
