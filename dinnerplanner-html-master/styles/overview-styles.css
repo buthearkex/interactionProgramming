@@ -9,3 +9,15 @@
 .float-right {
     float: right;
 }
+
+.filter-bar {
+	margin-bottom: 50px;
+}
+
+.float-right {
+	margin-right: 60px;
+}
+
+.centerButton {
+	float: right;
+}

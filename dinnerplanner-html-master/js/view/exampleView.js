@@ -113,7 +113,7 @@ var ExampleView = function (container, model) {
     var overviewItems = model.getFullMenu();
     for (var i = 0; i < overviewItems.length; i++) {
         $('#overviewFullMenuList').append(
-            "<div class='col-md-3'>" +
+            "<div class='col-md-3 thumbnail'>" +
             "<img class='img-responsive overview-pic' src='images/" +
             overviewItems[i].image +
             "'>" +
