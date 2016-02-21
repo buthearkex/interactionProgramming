@@ -1,12 +1,18 @@
 //ExampleView Object constructor
 var ExampleView = function (container, model) {
 
-    // Get all the relevant elements of the view (ones that show data
-    // and/or ones that responed to interaction)
+    //register this view as a observer of the model
+    model.addObserver(this);
 
-    //*** we need to make all of these ids in the html files!
+    //TO DO (Lab3, step 2)
+    //create an update method, passing an object as parameter (optional)
+    //in update method, get the new values from the model and update the components that show the model data
+
+    
 
     //GET ELEMENTS
+    // Get all the relevant elements of the view (ones that show data
+    // and/or ones that responed to interaction)
 
     //home screen (View 1)
     this.createNewDinnerButton = container.find("#createNewDinnerButton");
