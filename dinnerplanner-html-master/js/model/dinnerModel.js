@@ -1,5 +1,23 @@
 //DinnerModel Object constructor
 var DinnerModel = function () {
+    
+
+    //OBSERVABLE
+
+    this._observers = [];
+
+    //add new observer/listener to the array
+    this.addObserver = function (observer) {
+        this._observers.push(observer);
+    }
+
+    //call the update method on all the observers in the array
+    this.notifyObservers = function (obj) { //can pass in an object or argument
+        for (var i=0; i<this._observers.length; i++) {
+            this._observers[i](obj);
+        }
+    }
+
 
     //TODO Lab 2 implement the data structure that will hold number of guest
     // and selected dinner options for dinner menu
@@ -8,6 +26,8 @@ var DinnerModel = function () {
 
     this.setNumberOfGuests = function (num) {
         nbrGuests = num;
+        this.notifyObservers(); //should we pass nothing, an argument, or object?
+        //if we pass something into notifyObservers, this needs to be done for each notifyObservers() below
     }
 
     // should return 
@@ -68,6 +88,7 @@ var DinnerModel = function () {
                         //remove and add
                         menu.splice(index, 1);
                         menu.push(dish);
+                        this.notifyObservers();
                         console.log("deleted old dish");
                         dishAdded = true;
                     }
@@ -75,6 +96,7 @@ var DinnerModel = function () {
                 if (!dishAdded) {
                     console.log("added dish " + dish.id);
                     menu.push(dish);
+                    this.notifyObservers();
                     console.log(menu);
                     return;
                 }
@@ -87,6 +109,7 @@ var DinnerModel = function () {
         menu.forEach(function (dish, index) {
             if (dish.id == id) {
                 menu.splice(index, 1);
+                this.notifyObservers();
             }
         });
     }
