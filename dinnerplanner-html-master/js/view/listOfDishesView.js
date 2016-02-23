@@ -6,7 +6,9 @@ var ListOfDishesView = function (container, model) {
     for (var i = 0; i < dishes.length; i++) {
         this.allDishes.append(
             "<div class='col-md-3'>" +
-            "<a class='food-link'>" +
+            "<a id='" +
+            dishes[i].id +
+            "' class='food-link'>" +
             "<img class='img-responsive food-pic' src='images/" +
             dishes[i].image +
             "'>" +

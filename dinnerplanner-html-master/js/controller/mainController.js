@@ -13,9 +13,9 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
         listOfDishesView.show();
     });
 
-    listOfDishesView.foodLinks.click(function () {
+    listOfDishesView.foodLinks.click(function (event) {
         listOfDishesView.hide();
-        foodView.show();
+        foodView.show(event.target.id);
     });
 
     foodView.backToSelectDishButton.click(function () {
