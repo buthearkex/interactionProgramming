@@ -2,163 +2,260 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dinner planner</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
-  <!--Common styles-->
-  <link rel="stylesheet" href="styles/common-styles.css">
+    <!--Common styles-->
+    <link rel="stylesheet" href="styles/common-styles.css">
 
-  <!--View specific styles-->
-  <link rel="stylesheet" href="styles/home-styles.css">
+    <!--View specific styles-->
+    <link rel="stylesheet" href="styles/home-styles.css">
 
 </head>
 
 <body>
 
-  <!--Main header bar-->
-  <nav class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="home.html">HOMELETTE</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        From the best chefs in the world directly into your kitchen
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-  <!--End of main header bar-->
-
-
-  <!--Home screen-->
-  <div id="home-screen">
-    <img class="bg-img" src="images/bg-img.jpg" alt="nice background">
-
-    <section class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="text-box">
-            <h3>A Home Dinner Service</h3>
-
-            <div class="line"></div>
-
-            <p>Sweet roll jelly-o cake wafer. Brownie gummies pie ice cream jelly-o chocolate donut fruitcake. Biscuit muffin marshmallow tiramisu. Candy cake candy tart chocolate candy canes. Sweet chupa chups halvah sugar plum caramels. Sesame snaps icing ice cream cupcake candy canes. Pastry fruitcake marzipan. Pie gingerbread cheesecake jelly beans. Jujubes icing bonbon chocolate bar. Marzipan lemon drops cheesecake. Candy cupcake wafer sugar plum bonbon danish halvah. Chocolate cake pudding dessert icing liquorice cupcake dessert sesame snaps. Chocolate toffee caramels.</p>
-
-            <div>Start quicly</div>
-
-            <a id="createNewDinnerButton" class="btn btn-default" role="button">Create new dinner</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!--End of home screen-->
-
-  <div id="wrapper">
-
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-      <div class="sidebar-nav">
-        <div class="sidebar-brand">
-          <a href="#">My Dinner</a>
-        </div>
-        <div>
-          <div id="exampleView">
-            <div>
-              Number of guests: <span id="numberOfGuests"></span>
+    <!--Main header bar-->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home.html">HOMELETTE</a>
             </div>
-            <div>
-              <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-              <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                From the best chefs in the world directly into your kitchen
             </div>
-          </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div id="menuHeader">
-          <p>Dish Name</p>
-          <p class="right">Cost</p>
-        </div>
-        <div id="listedDishes"></div>
-        <div class="line"></div>
-        <div id="totalDinnerCost"></div>
-
-        <a id="confirmDinnerButton" href="dinnerOverview.html" class="btn btn-default">Confirm Dinner</a>
-      </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
+        <!-- /.container-fluid -->
+    </nav>
+    <!--End of main header bar-->
 
 
-      <!--list of dishes-->
-      <div id="list-of-dishes" class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12 search-heading">
-            <h3>Select Dish</h3>
-            <div class="line"></div>
-            <input type="text" id="searchBar">
-            <button type="button" id="searchButton" class="btn btn-default">Search</button>
-            <div id="dishTypeSelector" class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dish type
-                <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="#">Starter</a></li>
-                <li><a href="#">Main dish</a></li>
-                <li><a href="#">Dessert</a></li>
-              </ul>
+    <!--Home screen-->
+    <div id="home-screen">
+        <img class="bg-img" src="images/bg-img.jpg" alt="nice background">
+
+        <section class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-box">
+                        <h3>A Home Dinner Service</h3>
+
+                        <div class="line"></div>
+
+                        <p>Sweet roll jelly-o cake wafer. Brownie gummies pie ice cream jelly-o chocolate donut fruitcake. Biscuit muffin marshmallow tiramisu. Candy cake candy tart chocolate candy canes. Sweet chupa chups halvah sugar plum caramels. Sesame snaps icing ice cream cupcake candy canes. Pastry fruitcake marzipan. Pie gingerbread cheesecake jelly beans. Jujubes icing bonbon chocolate bar. Marzipan lemon drops cheesecake. Candy cupcake wafer sugar plum bonbon danish halvah. Chocolate cake pudding dessert icing liquorice cupcake dessert sesame snaps. Chocolate toffee caramels.</p>
+
+                        <div>Start quicly</div>
+
+                        <a id="createNewDinnerButton" class="btn btn-default" role="button">Create new dinner</a>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
+    </div>
+    <!--End of home screen-->
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-nav">
+                <div class="sidebar-brand">
+                    <a href="#">My Dinner</a>
+                </div>
+                <div>
+                    <div id="exampleView">
+                        <div>
+                            Number of guests: <span id="numberOfGuests"></span>
+                        </div>
+                        <div>
+                            <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+                            <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="menuHeader">
+                    <p>Dish Name</p>
+                    <p class="right">Cost</p>
+                </div>
+                <div id="listedDishes"></div>
+                <div class="line"></div>
+                <div id="totalDinnerCost"></div>
+
+                <a id="confirmDinnerButton" class="btn btn-default">Confirm Dinner</a>
+            </div>
         </div>
-        <div id="allDishes" class="row foods"></div>
-      </div>
-      <!--end of list of dishes-->
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
 
 
+            <!--list of dishes-->
+            <div id="list-of-dishes" class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 search-heading">
+                        <h3>Select Dish</h3>
+                        <div class="line"></div>
+                        <input type="text" id="searchBar">
+                        <button type="button" id="searchButton" class="btn btn-default">Search</button>
+                        <div id="dishTypeSelector" class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dish type
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Starter</a></li>
+                                <li><a href="#">Main dish</a></li>
+                                <li><a href="#">Dessert</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="allDishes" class="row foods"></div>
+            </div>
+            <!--end of list of dishes-->
 
+
+            <!--food view-->
+            <div id="foodView" class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 search-heading">
+                        <h3>Select Dish</h3>
+                        <div class="line"></div>
+                        <input type="text" id="searchBar">
+                        <button type="button" id="searchButton" class="btn btn-default">Search</button>
+                        <div id="dishTypeSelector" class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dish type
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Starter</a></li>
+                                <li><a href="#">Main dish</a></li>
+                                <li><a href="#">Dessert</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="dishDetails" class="row foods">
+                    <div class="col-md-6">
+                        <h2>LASAGNE</h2>
+                        <img class="img-resposive" src="images/meatballs.jpg">
+                        <p>Sweet roll jelly-o cake wafer. Brownie gummies pie ice cream jelly-o chocolate donut fruitcake. Biscuit muffin marshmallow tiramisu. Candy cake candy tart chocolate candy canes. Sweet chupa chups halvah sugar plum caramels. Sesame snaps icing ice cream cupcake candy canes.</p>
+                        <a id="backToSelectDishButton" class="btn btn-default">Back to select dish</a>
+                    </div>
+                    <div class="col-md-6 recipe">
+                        <h4>Ingredients for <span class="nbrGuests"></span> people</h4>
+                        <div class="line"></div>
+                        <div id="ingredientList">
+                            <div class="line"></div>
+                            <a id="confirmDishButton" class="btn btn-default">Confirm dish</a>
+                            <p>SEK 77.20</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>PREPARATION</h2>
+                            <ul>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                                <li>Cook everything</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end of food view-->
+
+            <!--overview bar-->
+            <div id="overview-bar" class="filter-bar"><span class="hed-text">My Dinner: <span id="numberOfGuests"></span> people</span>
+                <a id="go-back" class="btn btn-default float-right">Go back and  edit dinner</a>
+            </div>
+            <!--end of overview bar-->
+
+            <!--dinner overview-->
+            <div id="dinner-overview" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div id="overviewFullMenuList" class="col-md-6"></div>
+                    <div class="col-md-3"></div>
+                </div>
+                <div class="row border-up">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-6">
+                        <a id="print" class="btn btn-default centerButton">Print full recipe</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <!--end of dinner overview-->
+
+            <!--recipe-->
+            <div id="printableRecipe" class="container-fluid">
+                <div id="recipe-container"></div>
+            </div>
+            <!--end of recipe-->
+
+        </div>
+        <!-- /#page-content-wrapper -->
 
     </div>
-    <!-- /#page-content-wrapper -->
-
-  </div>
-  <!-- /#wrapper -->
+    <!-- /#wrapper -->
 
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 
+    <script src="js/model/dinnerModel.js"></script>
+    <!--<script src="js/view/exampleView.js"></script>-->
 
+    <script src="js/view/homeView.js"></script>
 
+    <script src="js/view/sidebarView.js"></script>
+    <script src="js/controller/sidebarViewController.js"></script>
 
-  <script src="js/model/dinnerModel.js"></script>
-  <!--<script src="js/view/exampleView.js"></script>-->
+    <script src="js/view/listOfDishesView.js"></script>
+    <script src="js/controller/listOfDishesViewController.js"></script>
 
-  <script src="js/view/homeView.js"></script>
-  <script src="js/controller/homeViewController.js"></script>
+    <script src="js/view/foodView.js"></script>
+    <script src="js/controller/foodViewController.js"></script>
 
-  <script src="js/view/sidebarView.js"></script>
-  <script src="js/controller/sidebarViewController.js"></script>
+    <script src="js/view/overviewBarView.js"></script>
+    <script src="js/controller/overviewBarViewController.js"></script>
 
-  <script src="js/view/listOfDishesView.js"></script>
+    <script src="js/view/dinnerOverviewView.js"></script>
+    <script src="js/controller/dinnerOverviewViewController.js"></script>
 
-  <!--we add this as last one, since it calls the others-->
-  <script src="js/app.js"></script>
+    <script src="js/view/recipeView.js"></script>
+    <script src="js/controller/recipeViewController.js"></script>
+
+    <script src="js/controller/mainController.js"></script>
+
+    <!--we add this as last one, since it calls the others-->
+    <script src="js/app.js"></script>
 </body>
-< /html>
+
+</html>

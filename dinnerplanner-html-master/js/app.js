@@ -1,38 +1,52 @@
 $(function () {
-  //We instantiate our model
-  var model = new DinnerModel();
+    //We instantiate our model
+    var model = new DinnerModel();
 
-  model.addDishToMenu(1);
-  model.addDishToMenu(1);
-  model.addDishToMenu(100);
-  model.addDishToMenu(200);
+    model.addDishToMenu(1);
+    model.addDishToMenu(1);
+    model.addDishToMenu(100);
+    model.addDishToMenu(200);
 
-  //MIKKO'S TESTS
-  /*model.setNumberOfGuests(10);
-  console.log(model.getNumberOfGuests());
+    //MIKKO'S TESTS
+    /*model.setNumberOfGuests(10);
+    console.log(model.getNumberOfGuests());
 
-  model.addDishToMenu(1);
-  model.addDishToMenu(1);
-  model.addDishToMenu(100);
-  model.removeDishFromMenu(100);
+    model.addDishToMenu(1);
+    model.addDishToMenu(1);
+    model.addDishToMenu(100);
+    model.removeDishFromMenu(100);
 
-  console.log(model.getFullMenu());
-  console.log(model.getSelectedDish("main dish"));
-  console.log(model.getAllIngredients());
-  console.log(model.getTotalMenuPrice());*/
+    console.log(model.getFullMenu());
+    console.log(model.getSelectedDish("main dish"));
+    console.log(model.getAllIngredients());
+    console.log(model.getTotalMenuPrice());*/
 
-  //And create the needed controllers and views
-  /*var exampleView = new ExampleView($("#exampleView"), model);
+    //And create the needed controllers and views
+    /*var exampleView = new ExampleView($("#exampleView"), model);
 var exampleViewController = new ExampleViewController(exampleView, model);*/
 
-  var homeView = new HomeView($('#home-screen'), model);
-  var homeViewController = new HomeViewController(homeView, model);
+    var homeView = new HomeView($('#home-screen'), model);
+    //var homeViewController = new HomeViewController(homeView, model);
 
-  var sidebarView = new SidebarView($('#sidebar-wrapper'), model);
-  var sidebarViewController = new SidebarViewController(sidebarView, model);
+    var sidebarView = new SidebarView($('#sidebar-wrapper'), model);
+    var sidebarViewController = new SidebarViewController(sidebarView, model);
 
-  var listOfDishesView = new ListOfDishesView($('#list-of-dishes'), model);
+    var listOfDishesView = new ListOfDishesView($('#list-of-dishes'), model);
+    var listOfDishesViewController = new ListOfDishesViewController(listOfDishesView, model);
 
-  //we should ask where they want us to do this
-  $('#wrapper').hide();
+    var foodView = new FoodView($('#foodView'), model);
+    var foodViewController = new FoodViewController(foodView, model);
+
+    var overviewBarView = new OverviewBarView($('#overview-bar'), model);
+    var overviewBarViewController = new OverviewBarViewController(overviewBarView, model);
+
+    var dinnerOverviewView = new DinnerOverviewView($('#dinner-overview'), model);
+    var dinnerOverviewViewController = new DinnerOverviewViewController(dinnerOverviewView, model);
+
+    var recipeView = new RecipeView($('#printableRecipe'), model);
+    var recipeViewController = new RecipeViewController(recipeView, model);
+
+    var mainController = new MainController(homeView, sidebarView, listOfDishesView, foodView, overviewBarView, dinnerOverviewView, recipeView, model);
+
+
 });
