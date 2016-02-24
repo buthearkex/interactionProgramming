@@ -1,3 +1,6 @@
+/*This is just to hide and show different views.
+We do verything
+else inthe specific controllers.*/
 var MainController = function (homeView, sidebarView, listOfDishesView, foodView, overviewBarView, dinnerOverviewView, recipeView, model) {
 
     sidebarView.hide();
@@ -15,12 +18,12 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
 
     listOfDishesView.foodLinks.click(function (event) {
         listOfDishesView.hide();
-        foodView.show(event.target.id);
-    });
+        foodView.show(this.id);
 
-    foodView.backToSelectDishButton.click(function () {
-        foodView.hide();
-        listOfDishesView.show();
+        foodView.backToSelectDishButton.click(function () {
+            foodView.hide();
+            listOfDishesView.show();
+        });
     });
 
     foodView.confirmDishButton.click(function () {

@@ -1,7 +1,7 @@
 var FoodViewController = function (view, model) {
 
-    view.confirmDishButton.click(function () {
-        //add to model here
+    view.confirmDishButton.click(function (event) {
+        model.addDishToMenu(this.id);
     });
 
 }

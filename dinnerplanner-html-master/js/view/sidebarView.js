@@ -24,8 +24,8 @@ var SidebarView = function (container, model) {
     }
 
     this.updateDishes = function () {
+        listedDishes.empty();
         model.getFullMenu().forEach(function (menuItem) {
-            listedDishes.empty();
             listedDishes.append(
                 "<div class='dishesList'>" +
                 menuItem.name +
