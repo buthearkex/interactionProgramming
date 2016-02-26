@@ -8,4 +8,9 @@ var SidebarViewController = function (view, model) {
     model.setNumberOfGuests(model.getNumberOfGuests() - 1);
   });
 
+  view.removeDishButton.click(function (event) {
+    model.removeDishFromMenu(this.id);
+    console.log(this.id);
+  });
+
 }

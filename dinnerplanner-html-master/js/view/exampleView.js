@@ -56,7 +56,7 @@ var ExampleView = function (container, model) {
   this.fullMenuList.html(model.getFullMenu());
   this.totalDinnerCost.html(model.getTotalMenuPrice());
   //.html() method writes to the html, so this is not needed, onlu when some functionality is required
-  //this.removeDishButton.html(model.removeDishFromMenu());
+  this.removeDishButton.html(model.removeDishFromMenu());
 
 
 
