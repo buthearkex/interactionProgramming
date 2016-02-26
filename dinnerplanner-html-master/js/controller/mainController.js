@@ -16,7 +16,7 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
         listOfDishesView.show();
     });
 
-    listOfDishesView.foodLinks.click(function (event) {
+    listOfDishesView.allDishes.on("click", ".food-link", function () {
         listOfDishesView.hide();
         foodView.show(this.id);
 
@@ -27,6 +27,11 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
     });
 
     foodView.confirmDishButton.click(function () {
+        foodView.hide();
+        listOfDishesView.show();
+    });
+
+    foodView.dishDetails.on('click', '#backToSelectDishButton', function () {
         foodView.hide();
         listOfDishesView.show();
     });

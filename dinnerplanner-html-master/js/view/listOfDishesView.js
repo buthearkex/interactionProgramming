@@ -4,11 +4,15 @@ var ListOfDishesView = function (container, model) {
     this.startersFilter = container.find('#starters-filter');
     this.mainFilter = container.find('#main-filter');
     this.dessertFilter = container.find('#dessert-filter');
+    this.allFilter = container.find('#all-filter');
 
     this.updateAllDishes = function (type) {
+        console.log(type);
         var dishes = model.getAllDishes().prevObject;
+        this.allDishes.empty();
         for (var i = 0; i < dishes.length; i++) {
-            if (dishes[i].type == type || type == "All") {
+            //console.log(dishes[i].type + "hho");
+            if (dishes[i].type == type || type == "all") {
                 this.allDishes.append(
                     "<div class='col-md-3'>" +
                     "<a id='" +
@@ -28,6 +32,7 @@ var ListOfDishesView = function (container, model) {
                 );
             }
         }
+        this.foodLinks = container.find('.food-link');
     }
 
     this.hide = function () {
@@ -39,19 +44,18 @@ var ListOfDishesView = function (container, model) {
 
 
     this.update = function (type) {
-        if (type == "Starter") {
-            this.updateAllDishes("Starter");
-        } else if (type == "Main Dish") {
-            this.updateAllDishes("Main");
-        } else if (type == "Dessert") {
-            this.updateAllDishes("Dessert");
+        if (type == "starter") {
+            this.updateAllDishes(type);
+        } else if (type == "main dish") {
+            this.updateAllDishes(type);
+        } else if (type == "dessert") {
+            this.updateAllDishes(type);
         } else {
-            this.updateAllDishes("All");
+            this.updateAllDishes("all");
         }
-
     }
 
-    this.updateAllDishes("All");
+    this.updateAllDishes("all");
 
     this.foodLinks = container.find('.food-link');
 
