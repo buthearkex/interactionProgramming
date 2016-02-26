@@ -104,9 +104,9 @@ var DinnerModel = function () {
         menu.forEach(function (dish, index) {
             if (dish.id == id) {
                 menu.splice(index, 1);
-                this.notifyObservers('removedDish');
             }
         });
+        this.notifyObservers('removedDish');
     }
 
     //Mikko's adidtional helper method

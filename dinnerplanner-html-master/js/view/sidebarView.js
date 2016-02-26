@@ -6,7 +6,7 @@ var SidebarView = function (container, model) {
     this.plusButton = container.find("#plusGuest");
     this.minusButton = container.find("#minusGuest");
     this.confirmDinnerButton = container.find("#confirmDinnerButton");
-    this.removeDishButton = container.find(".removeDishButton");
+
 
 
     //these are only for displaying
@@ -39,6 +39,7 @@ var SidebarView = function (container, model) {
                 "' class='btn btn-default removeDishButton'>x</span>"
             );
         });
+        this.removeDishButton = container.find(".removeDishButton");
     }
 
     this.hide = function () {
