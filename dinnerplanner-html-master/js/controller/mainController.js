@@ -46,6 +46,7 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
             dinnerOverviewView.show();
         }
 
+        $("#wrapper").toggleClass("toggled");
 
     });
 
@@ -55,6 +56,7 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
         recipeView.hide();
         sidebarView.show();
         listOfDishesView.show();
+        $("#wrapper").toggleClass("toggled");
     });
 
     dinnerOverviewView.printButton.click(function () {

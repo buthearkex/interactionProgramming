@@ -197,6 +197,11 @@
     padding-top: 30px;
 }
 
+.foods-list {
+    z-index: 1;
+    padding-top: 150px;
+}
+
 .right {
     float: right;
     margin-top: -50px;
