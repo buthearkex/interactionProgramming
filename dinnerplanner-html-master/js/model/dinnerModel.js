@@ -67,6 +67,7 @@ var DinnerModel = function () {
                 totalPrice += ingredient.price;
             });
         });
+        totalPrice = totalPrice * this.getNumberOfGuests();
         return totalPrice;
     }
 

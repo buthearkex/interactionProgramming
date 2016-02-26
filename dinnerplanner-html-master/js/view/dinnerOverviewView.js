@@ -4,8 +4,10 @@ var DinnerOverviewView = function (container, model) {
 
     this.overviewFullMenuList = container.find('#overviewFullMenuList');
     this.printButton = container.find('#print');
+    this.fullPrice = container.find('#full-price');
 
     this.updateMenu = function () {
+        this.overviewFullMenuList.empty();
         var overviewItems = model.getFullMenu();
         for (var i = 0; i < overviewItems.length; i++) {
             this.overviewFullMenuList.append(
@@ -20,7 +22,7 @@ var DinnerOverviewView = function (container, model) {
             );
         }
 
-        this.overviewFullMenuList.append(
+        this.fullPrice.html(
             "<div class='col-md-3 border'>" +
             "<p>Total:</p>" +
             "<div>" +
@@ -42,6 +44,8 @@ var DinnerOverviewView = function (container, model) {
 
     this.update = function (obj) {
         if (obj == 'newDish') {
+            this.updateMenu();
+        } else if (obj == 'removedDish') {
             this.updateMenu();
         }
     }
