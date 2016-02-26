@@ -33,7 +33,6 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
 
     sidebarView.confirmDinnerButton.click(function () {
         if ($('#foodView').is(":visible")) {
-            console.log('visible');
             sidebarView.hide();
             foodView.hide();
             overviewBarView.show();

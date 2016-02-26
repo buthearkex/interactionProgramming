@@ -5,11 +5,10 @@ var RecipeView = function (container, model) {
     this.recipe = container.find('#recipe-container');
 
     this.updateRecipe = function () {
-        console.log(menuItems);
         var menuItems = model.getFullMenu();
         this.recipe.empty();
         for (var i = 0; i < menuItems.length; i++) {
-            this.recipe.html(
+            this.recipe.append(
                 "<div class='row'>" +
                 "<div class='col-md-5'>" +
                 "<img class='food-pic' src='images/" +
@@ -31,8 +30,6 @@ var RecipeView = function (container, model) {
                 "</div>"
             );
         }
-        console.log('recipe update');
-
     }
 
     this.hide = function () {
