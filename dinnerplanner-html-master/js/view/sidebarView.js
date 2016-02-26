@@ -6,6 +6,7 @@ var SidebarView = function (container, model) {
     this.plusButton = container.find("#plusGuest");
     this.minusButton = container.find("#minusGuest");
     this.confirmDinnerButton = container.find("#confirmDinnerButton");
+    this.sidebarNav = container.find('.sidebar-nav');
 
 
 
@@ -26,7 +27,7 @@ var SidebarView = function (container, model) {
 
     this.updateDishes = function () {
         listedDishes.empty();
-        model.getFullMenu().forEach(function (menuItem) {
+        model.getFullMenu().forEach(function (menuItem, index) {
             listedDishes.append(
                 "<div class='dishesList'>" +
                 menuItem.name +
