@@ -42,6 +42,8 @@ var RecipeView = function (container, model) {
     this.update = function (obj) {
         if (obj == 'newDish') {
             this.updateRecipe();
+        } else if (obj == 'removedDish') {
+            this.updateRecipe();
         }
     }
 
