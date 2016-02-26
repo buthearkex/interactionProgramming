@@ -32,10 +32,21 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
     });
 
     sidebarView.confirmDinnerButton.click(function () {
-        sidebarView.hide();
-        listOfDishesView.hide();
-        overviewBarView.show();
-        dinnerOverviewView.show();
+        if ($('#foodView').is(":visible")) {
+            console.log('visible');
+            sidebarView.hide();
+            foodView.hide();
+            overviewBarView.show();
+            dinnerOverviewView.show();
+        } else {
+            console.log('not visible');
+            sidebarView.hide();
+            listOfDishesView.hide();
+            overviewBarView.show();
+            dinnerOverviewView.show();
+        }
+
+
     });
 
     overviewBarView.goBackButton.click(function () {
