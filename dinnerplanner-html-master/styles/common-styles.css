@@ -271,3 +271,7 @@
 .float-right {
     float: right;
 }
+
+.dropdown {
+    display: inline;
+}
