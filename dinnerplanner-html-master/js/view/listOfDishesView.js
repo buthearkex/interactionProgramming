@@ -1,6 +1,9 @@
 var ListOfDishesView = function (container, model) {
 
     this.allDishes = container.find('#allDishes');
+    this.startersFilter = container.find('#starters-filter');
+    this.mainFilter = container.find('#main-filter');
+    this.dessertFilter = container.find('#dessert-filter');
 
     this.updateAllDishes = function (type) {
         var dishes = model.getAllDishes().prevObject;
@@ -36,7 +39,7 @@ var ListOfDishesView = function (container, model) {
         container.show();
     }
 
-    
+
     this.update = function (type) {
         if (type == "Starter") {
             this.updateAllDishes(Starter);
@@ -47,9 +50,9 @@ var ListOfDishesView = function (container, model) {
         } else {
             this.updateAllDishes(All);
         }
-        
+
     }
 
     this.updateAllDishes(All);
-    
+
 }
