@@ -54,6 +54,7 @@ var FoodView = function (container, model) {
 
             this.totalPrice.html(model.getPriceOfDish(id));
         }
+        this.backToSelectDishButton = container.find("#backToSelectDishButton");
     }
 
     this.hide = function () {

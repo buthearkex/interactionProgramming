@@ -8,7 +8,7 @@ var ListOfDishesView = function (container, model) {
     this.updateAllDishes = function (type) {
         var dishes = model.getAllDishes().prevObject;
         for (var i = 0; i < dishes.length; i++) {
-            if (dishes[i].type == type || type == All) {
+            if (dishes[i].type == type || type == "All") {
                 this.allDishes.append(
                     "<div class='col-md-3'>" +
                     "<a id='" +
@@ -30,8 +30,6 @@ var ListOfDishesView = function (container, model) {
         }
     }
 
-    this.foodLinks = container.find('.food-link');
-
     this.hide = function () {
         container.hide();
     }
@@ -42,17 +40,19 @@ var ListOfDishesView = function (container, model) {
 
     this.update = function (type) {
         if (type == "Starter") {
-            this.updateAllDishes(Starter);
+            this.updateAllDishes("Starter");
         } else if (type == "Main Dish") {
-            this.updateAllDishes(Main);
+            this.updateAllDishes("Main");
         } else if (type == "Dessert") {
-            this.updateAllDishes(Dessert);
+            this.updateAllDishes("Dessert");
         } else {
-            this.updateAllDishes(All);
+            this.updateAllDishes("All");
         }
 
     }
 
-    this.updateAllDishes(All);
+    this.updateAllDishes("All");
+
+    this.foodLinks = container.find('.food-link');
 
 }
