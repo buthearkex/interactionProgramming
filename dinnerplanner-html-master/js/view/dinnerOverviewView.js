@@ -43,11 +43,7 @@ var DinnerOverviewView = function (container, model) {
     }
 
     this.update = function (obj) {
-        if (obj == 'newDish') {
-            this.updateMenu();
-        } else if (obj == 'removedDish') {
-            this.updateMenu();
-        }
+        this.updateMenu();
     }
 
     this.updateMenu();

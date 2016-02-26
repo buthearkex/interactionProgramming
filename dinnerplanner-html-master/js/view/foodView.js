@@ -1,5 +1,7 @@
 var FoodView = function (container, model) {
 
+    model.addObserver(this);
+
     this.dishDetails = container.find("#dishDetails");
     this.backToSelectDishButton = container.find("#backToSelectDishButton");
     this.confirmDishButton = container.find("#confirmDishButton");
@@ -7,9 +9,9 @@ var FoodView = function (container, model) {
     var ingreList = this.ingredientList;
     this.nbrOfGuests = container.find('.nbrGuests');
     this.foodDescription = container.find('#food-description');
+    this.totalPrice = container.find('#totalPrice');
 
-
-    this.nbrOfGuests.html(model.getNumberOfGuests());
+    this.savedId;
 
     this.updateView = function (id) {
         if (!(typeof id === 'undefined')) {
@@ -34,11 +36,11 @@ var FoodView = function (container, model) {
                     ingr.name +
                     "</div>" +
                     "<div class='col-sm-3'>" +
-                    ingr.quantity +
+                    ingr.quantity * model.getNumberOfGuests() +
                     "</div>" +
                     "<div class='col-sm-3'>SEK</div>" +
                     "<div class='col-sm-3'>" +
-                    ingr.price +
+                    ingr.price * model.getNumberOfGuests() +
                     "</div>" +
                     "</div>"
                 );
@@ -47,6 +49,10 @@ var FoodView = function (container, model) {
             this.backToSelectDishButton = container.find("#backToSelectDishButton");
 
             this.confirmDishButton.attr('id', id);
+
+            this.nbrOfGuests.html(model.getNumberOfGuests());
+
+            this.totalPrice.html(model.getPriceOfDish(id));
         }
     }
 
@@ -55,8 +61,13 @@ var FoodView = function (container, model) {
     }
 
     this.show = function (id) {
+        this.savedId = id;
         this.updateView(id);
         container.show();
+    }
+
+    this.update = function () {
+        this.updateView(this.savedId);
     }
 
     this.updateView();

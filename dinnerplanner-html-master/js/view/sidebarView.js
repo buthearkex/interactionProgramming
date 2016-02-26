@@ -54,9 +54,12 @@ var SidebarView = function (container, model) {
     this.update = function (obj) {
         if (obj == "numberOfGuests") {
             this.updateNumberOfGuests();
+            this.updateDishes();
+            this.updateTotalDinnerCost();
         } else {
             this.updateTotalDinnerCost();
             this.updateDishes();
+            this.updateTotalDinnerCost();
         }
 
     }
