@@ -32,7 +32,10 @@ var SidebarView = function (container, model) {
                 "</div>" +
                 "<span id='pending'>" +
                 model.getPriceOfDish(menuItem.id) +
-                "</span>"
+                "</span>" +
+                "<span id=" +
+                menuItem.id +
+                "' class='btn btn-default removeDishButton'>x</span>"
             );
         });
     }
