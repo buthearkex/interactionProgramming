@@ -10,7 +10,7 @@ var ListOfDishesView = function (container, model) {
   this.dropdown = container.find('#dropdown-text');
 
   this.updateAllDishes = function (type, filter) {
-    console.log(filter);
+    console.log(type + " " + filter);
     if (!filter && type == 'all') {
 
       var dishes = model.getAllDishes().prevObject;
@@ -20,15 +20,17 @@ var ListOfDishesView = function (container, model) {
       console.log(dishes + 'ei');
     } else {
       var dishes = model.getAllDishes(type, filter);
-      console.log(dishes + 'joo');
+      console.log('joo');
     }
 
     console.log(dishes);
 
     if (dishes.length == 0) {
       this.updateHTML(dishes);
+      console.log('just one');
     } else {
       this.updateHTMLArray(dishes);
+      console.log('several');
     }
 
 
@@ -101,6 +103,7 @@ var ListOfDishesView = function (container, model) {
     } else if (type == "dessert") {
       this.updateAllDishes(type, filter);
     } else {
+      //this is the problem
       this.updateAllDishes("all", filter);
     }
   }
