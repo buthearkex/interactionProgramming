@@ -126,6 +126,24 @@ var DinnerModel = function () {
     //you can use the filter argument to filter out the dish by name or ingredient (use for search)
     //if you don't pass any filter all the dishes will be returned
     this.getAllDishes = function (type, filter) {
+
+        //BigOven JSON API Request
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: 'http://api.bigoven.com/recipes?pg=1&rpp=10&api_key=18f3cT02U9f6yRl3OKDpP8NA537kxYKu',
+            success: function (data) {
+                alert('Received BigOven Data');
+                console.log(data);
+                //TBD notify observers and pass data
+            },
+            error: function(xhr,status,error) {
+                console.error(error);
+            }
+        });
+
+        //Old way to get dishes
         return $(dishes).filter(function (index, dish) {
             var found = true;
             if (filter) {
