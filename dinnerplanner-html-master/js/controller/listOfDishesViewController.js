@@ -1,23 +1,22 @@
 var ListOfDishesViewController = function (view, model) {
 
     view.startersFilter.click(function () {
-        view.update("starter");
+        view.update("starter", view.searchInput.val());
         view.dropdown.html('starter ' + '<span class="caret"></span>');
     });
 
     view.mainFilter.click(function () {
-        view.update("main dish");
+        view.update("main dish", view.searchInput.val());
         view.dropdown.html('main dish ' + '<span class="caret"></span>');
     });
 
     view.dessertFilter.click(function () {
-        view.update("dessert");
+        view.update("dessert", view.searchInput.val());
         view.dropdown.html('dessert ' + '<span class="caret"></span>');
     });
 
     view.allFilter.click(function () {
-        view.update("all");
-        console.log(view.dropdown);
+        view.update("all", view.searchInput.val());
         view.dropdown.html('all ' + '<span class="caret"></span>');
 
     });

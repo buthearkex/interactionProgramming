@@ -29,5 +29,4 @@ $(function () {
 
     var mainController = new MainController(homeView, sidebarView, listOfDishesView, foodView, overviewBarView, dinnerOverviewView, recipeView, model);
 
-
 });
