@@ -19,14 +19,11 @@ var ListOfDishesViewController = function (view, model) {
         view.update("all");
         console.log(view.dropdown);
         view.dropdown.html('all ' + '<span class="caret"></span>');
-        //$('#dropdown-text').html('All' + '<span class="caret"></span>');
 
     });
 
     view.searchButton.click(function () {
-        //get text in field
         var searchQuery = view.searchInput.val();
-        console.log(searchQuery);
         var type = view.dropdown.text().trim();
         view.update(type, searchQuery);
     });

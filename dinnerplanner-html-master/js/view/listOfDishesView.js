@@ -10,15 +10,10 @@ var ListOfDishesView = function (container, model) {
     this.dropdown = container.find('#dropdown-text');
 
     this.updateAllDishes = function (type, filter) {
-        console.log(type + " " + filter);
         if (!filter && type == 'all') {
-
             var dishes = model.getAllDishes().prevObject;
-
-            console.log(dishes);
         } else if (!filter) {
             var dishes = model.getAllDishes(type);
-            console.log(dishes + 'ei');
         } else if (type == 'all' && filter) {
             var dishes = model.getAllDishes('starter', filter);
             var mains = model.getAllDishes('main dish', filter);
@@ -30,50 +25,19 @@ var ListOfDishesView = function (container, model) {
             var dishes = model.getAllDishes(type, filter);
         }
 
-        console.log(dishes);
-
         this.allDishes.empty();
-
-
 
         if (!dishes.length == 0) {
             this.updateHTMLArray(dishes);
-            console.log('several');
         }
-        /*if (typeof dishes[0] == 'undefined') {
-            console.log('hople');
-        }
-        this.updateHTML(dishes);
-        console.log('just one');*/
-        /* } else {
-
-
-
- }*/
-
-
-        //var dishes = model.getAllDishes().prevObject;
-
         this.foodLinks = container.find('.food-link');
     }
 
     this.handleAllTypes = function (starters, mains, desserts) {
         starters = starters.toArray();
-        console.log(starters);
-        //starters = starters.slice(0, starters.length - 2);
-
         mains = mains.toArray();
-        console.log(mains);
-        //mains = mains.slice(0, starters.length - 2);
-
         desserts = desserts.toArray();
-        console.log(desserts);
-        //desserts = desserts.slice(0, desserts.length - 2);
-
         var dishes = starters.concat(mains, desserts);
-
-        console.log(dishes);
-        console.log('joo');
 
         if (dishes.length != 0) {
             this.allDishes.empty();
@@ -135,9 +99,6 @@ var ListOfDishesView = function (container, model) {
 
 
     this.update = function (type, filter) {
-        console.log(type);
-        console.log('type ' + type);
-        console.log(type === 'starter');
 
         if (type === "starter") {
             this.updateAllDishes(type, filter);
@@ -146,7 +107,6 @@ var ListOfDishesView = function (container, model) {
         } else if (type === "dessert") {
             this.updateAllDishes(type, filter);
         } else {
-            //this is the problem
             this.updateAllDishes("all", filter);
         }
     }
