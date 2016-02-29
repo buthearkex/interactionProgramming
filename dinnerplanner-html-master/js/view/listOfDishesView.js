@@ -26,7 +26,6 @@ var ListOfDishesView = function (container, model) {
         }
 
         this.allDishes.empty();
-
         if (!dishes.length == 0) {
             this.updateHTMLArray(dishes);
         }
@@ -39,8 +38,8 @@ var ListOfDishesView = function (container, model) {
         desserts = desserts.toArray();
         var dishes = starters.concat(mains, desserts);
 
+        this.allDishes.empty();
         if (dishes.length != 0) {
-            this.allDishes.empty();
             this.updateHTMLArray(dishes);
         }
     }
