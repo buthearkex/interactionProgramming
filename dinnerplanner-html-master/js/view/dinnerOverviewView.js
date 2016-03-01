@@ -18,7 +18,7 @@ var DinnerOverviewView = function (container, model) {
                 "<p>" +
                 overviewItems[i].Title +
                 " " +
-                model.getPriceOfDish(overviewItems[i].id) +
+                Math.round(model.getPriceOfDish(overviewItems[i].id)) +
                 " SEK</p>" +
                 "</div>"
             );
@@ -29,7 +29,7 @@ var DinnerOverviewView = function (container, model) {
             "<p>Total:</p>" +
             "<div>" +
             "<p>" +
-            model.getTotalMenuPrice() +
+            Math.round(model.getTotalMenuPrice()) +
             " SEK</p>" +
             "</div>" +
             "</div>"

@@ -24,7 +24,7 @@ var SidebarView = function (container, model) {
     this.updateTotalDinnerCost = function () {
         this.totalDinnerCost.html(
             "<div>Total: " +
-            model.getTotalMenuPrice() +
+            Math.round(model.getTotalMenuPrice()) +
             " SEK</div>"
         );
     }
@@ -38,7 +38,7 @@ var SidebarView = function (container, model) {
                 dish.Title +
                 "</div>" +
                 "<span id='pending'>" +
-                model.getTotalMenuPrice() +
+                Math.round(model.getTotalMenuPrice()) +
                 "</span>" +
                 "<span id='" +
                 dish.RecipeID +

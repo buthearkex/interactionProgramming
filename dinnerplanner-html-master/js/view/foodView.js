@@ -46,17 +46,17 @@ var FoodView = function (container, model) {
                     ingr.Name +
                     "</div>" +
                     "<div class='col-sm-3'>" +
-                    ingr.MetricQuantity * model.getNumberOfGuests() +
+                    Math.round(ingr.MetricQuantity * model.getNumberOfGuests()) +
                     " " +
                     ingr.Unit +
                     "</div>" +
                     "<div class='col-sm-3'>SEK</div>" +
                     "<div class='col-sm-3'>" +
-                    ingr.MetricQuantity * model.getNumberOfGuests() +
+                    Math.round(ingr.MetricQuantity * model.getNumberOfGuests()) +
                     "</div>" +
                     "</div>"
                 );
-                price += ingr.MetricQuantity * model.getNumberOfGuests();
+                price += Math.round(ingr.MetricQuantity * model.getNumberOfGuests());
             });
 
             this.backToSelectDishButton = container.find("#backToSelectDishButton");
