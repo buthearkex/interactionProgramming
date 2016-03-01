@@ -1,7 +1,7 @@
 //DinnerModel Object constructor
 var DinnerModel = function () {
 
-    this.apiKey = '18f3cT02U9f6yRl3OKDpP8NA537kxYKu';
+    this.apiKey = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
 
     //OBSERVABLE
     this.observers = [];

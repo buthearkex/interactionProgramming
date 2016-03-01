@@ -11,20 +11,20 @@ var RecipeView = function (container, model) {
             this.recipe.append(
                 "<div class='row'>" +
                 "<div class='col-md-5'>" +
-                "<img class='food-pic' src='images/" +
-                menuItems[i].image +
+                "<img class='food-pic' src='" +
+                menuItems[i].ImageURL +
                 "'>" +
                 "<h3>" +
-                menuItems[i].name +
+                menuItems[i].Title +
                 "</h3>" +
                 "<p>" +
-                menuItems[i].description +
+                menuItems[i].Description +
                 "</p>" +
                 "</div>" +
                 "<div class='col-md-7'>" +
                 "<h4>PREPARATION</h4>" +
                 "<p>" +
-                menuItems[i].description +
+                menuItems[i].Description +
                 "</p>" +
                 "</div>" +
                 "</div>"
@@ -40,10 +40,8 @@ var RecipeView = function (container, model) {
         container.show();
     }
 
-    this.update = function (obj) {
-        if (obj == 'newDish') {
-            this.updateRecipe();
-        } else if (obj == 'removedDish') {
+    this.update = function (data, dataType) {
+        if (dataType == 'menu') {
             this.updateRecipe();
         }
     }

@@ -12,10 +12,12 @@ var DinnerOverviewView = function (container, model) {
         for (var i = 0; i < overviewItems.length; i++) {
             this.overviewFullMenuList.append(
                 "<div class='col-md-3 thumbnail'>" +
-                "<img class='img-responsive overview-pic' src='images/" +
-                overviewItems[i].image +
+                "<img class='img-responsive overview-pic' src='" +
+                overviewItems[i].ImageURL +
                 "'>" +
                 "<p>" +
+                overviewItems[i].Title +
+                " " +
                 model.getPriceOfDish(overviewItems[i].id) +
                 " SEK</p>" +
                 "</div>"
