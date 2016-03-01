@@ -154,14 +154,23 @@ if (!sameFound) {
     //if you don't pass any filter all the dishes will be returned
     this.getAllDishes = function (type, filter) {
 
-        if (type === 'undefined')
+        
 
-            var titleKey = filter;
-        var anyKey = type;
+        var titleKey = '&title_kw=' + filter;
+        var anyKey = '&any_kw=' + type;
         var pages = 1;
         var perPage = 20;
 
         var modelHolder = this;
+
+        if (type == null) {
+            console.log("type is undefined");
+            anyKey = "";
+        }
+        if (filter == null) {
+            console.log("filter is undefined");
+            titleKey = "";
+        }
 
         console.log('http://api.bigoven.com/recipes?' +
             'title_kw=' +
@@ -182,17 +191,14 @@ if (!sameFound) {
             dataType: 'json',
             cache: false,
             url: 'http://api.bigoven.com/recipes?' +
-                'title_kw=' +
-                titleKey +
-                '&' +
-                'any_kw=' +
-                anyKey +
+                'api_key=' +
+                this.apiKey +
                 '&pg=' +
                 pages +
                 '&rpp=' +
                 perPage +
-                '&api_key=' +
-                this.apiKey,
+                titleKey +
+                anyKey,
             success: function (data) {
                 console.log('success');
                 modelHolder.notifyObservers(data, 'dishesList');
