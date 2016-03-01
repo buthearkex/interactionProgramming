@@ -6,7 +6,7 @@ var DinnerOverviewView = function (container, model) {
     this.printButton = container.find('#print');
     this.fullPrice = container.find('#full-price');
 
-    this.updateMenu = function () {
+    this.updateMenu = function (data) {
         this.overviewFullMenuList.empty();
         var overviewItems = model.getFullMenu();
         for (var i = 0; i < overviewItems.length; i++) {
@@ -42,10 +42,13 @@ var DinnerOverviewView = function (container, model) {
         container.show();
     }
 
-    this.update = function (obj) {
-        this.updateMenu();
+    this.update = function (data, dataType) {
+        if (dataType === 'menu') {
+            this.updateMenu(data);
+        }
+
     }
 
-    this.updateMenu();
+    //this.updateMenu();
 
 }

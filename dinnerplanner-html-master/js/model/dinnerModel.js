@@ -21,17 +21,17 @@ var DinnerModel = function () {
 
     //TODO Lab 2 implement the data structure that will hold number of guest
     // and selected dinner options for dinner menu
-    var nbrGuests = 10;
-    var menu = [];
+    this.nbrGuests = 10;
+    this.menu = [];
 
     this.setNumberOfGuests = function (num) {
-        nbrGuests = num;
+        this.nbrGuests = num;
         this.notifyObservers('numberOfGuests');
     }
 
     // should return 
     this.getNumberOfGuests = function () {
-        return nbrGuests;
+        return this.nbrGuests;
     }
 
     //Returns the dish that is on the menu for selected type 
@@ -48,7 +48,7 @@ var DinnerModel = function () {
 
     //Returns all the dishes on the menu.
     this.getFullMenu = function () {
-        return menu;
+        return this.menu;
     }
 
     //Returns all ingredients for all the dishes on the menu.
@@ -62,14 +62,19 @@ var DinnerModel = function () {
 
     //Returns the total price of the menu (all the ingredients multiplied by number of guests).
     this.getTotalMenuPrice = function () {
+        var mod = this;
         var totalPrice = 0;
-        menu.forEach(function (dish) {
-            dish.ingredients.forEach(function (ingredient) {
-                totalPrice += ingredient.price;
+        this.menu.forEach(function (dish) {
+            dish.Ingredients.forEach(function (ingr) {
+                totalPrice += ingr.MetricQuantity;
             });
+            /*dish.Ingredients.forEach(function (ingredient) {
+                totalPrice += ingredient.price;
+            });*/
         });
-        totalPrice = totalPrice * this.getNumberOfGuests();
-        return totalPrice;
+        return totalPrice * this.getNumberOfGuests();
+        //totalPrice = totalPrice * this.getNumberOfGuests();
+        //return totalPrice;
     }
 
     //Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -97,22 +102,35 @@ var DinnerModel = function () {
                 }
             }
         });*/
-        menu.push(id);
-        var mod = this;
-        menu.forEach(function (menuItem) {
-            mod.getDish(menuItem, 'menu');
-        });
+        /*var sameFound = false;
+this.menu.forEach(function (dish) {
+    if (dish.Title === data.Title) {
+        sameFound = true;
+    }
+});
+if (!sameFound) {
+    menu.push(data);
+}*/
+        this.getDish(id, 'menu');
+
+        /*var mod = this;
+        this.menu.forEach(function (menuItem) {
+            mod.getDish(menuItem.RecipeID, 'menu');
+        });*/
         //this.notifyObservers('newDish');
     }
 
     //Removes dish from menu
     this.removeDishFromMenu = function (id) {
+        console.log('mitav');
         var mod = this;
-        menu.forEach(function (dish, index) {
-            if (dish == id) {
-                menu.splice(index, 1);
-            } else {
-                mod.getDish(id, 'menu');
+        this.menu.forEach(function (dish, index) {
+            if (dish.RecipeID == id) {
+                console.log('hoppa');
+
+                mod.menu.splice(index, 1);
+                mod.notifyObservers(id, "removed");
+                return;
             }
         });
 
@@ -121,10 +139,10 @@ var DinnerModel = function () {
     //Mikko's adidtional helper method
     this.getPriceOfDish = function (id) {
         var price = 0;
-        dishes.forEach(function (dish) {
-            if (dish.id == id) {
-                dish.ingredients.forEach(function (ingredient) {
-                    price += ingredient.price * nbrGuests;
+        this.menu.forEach(function (dish) {
+            if (dish.RecipeID == id) {
+                dish.Ingredients.forEach(function (ingredient) {
+                    price += ingredient.Unit * nbrGuests;
                 });
             }
         });
@@ -208,7 +226,10 @@ var DinnerModel = function () {
                 '?&api_key=' +
                 this.apiKey,
             success: function (data) {
-                //console.log(data);
+                console.log(data);
+                if (message === "menu") {
+                    modelHolder.putToMenu(data);
+                }
                 modelHolder.notifyObservers(data, message);
             },
             error: function (xhr, status, error) {
@@ -224,6 +245,18 @@ var DinnerModel = function () {
         }*/
     }
 
+    this.putToMenu = function (data) {
+
+        var sameFound = false;
+        this.menu.forEach(function (dish) {
+            if (dish.Title === data.Title) {
+                sameFound = true;
+            }
+        });
+        if (!sameFound) {
+            this.menu.push(data);
+        }
+    }
 
     // the dishes variable contains an array of all the 
     // dishes in the database. each dish has id, name, type,

@@ -25,28 +25,30 @@ var SidebarView = function (container, model) {
         this.totalDinnerCost.html(model.getTotalMenuPrice());
     }
 
-    this.updateDishes = function (data) {
-        if (!(typeof data === 'undefined')) {
-            console.log(data);
-            listedDishes.empty();
-            var price = 0;
-            data.Ingredients.forEach(function (ingr) {
-                price += ingr.MetricQuantity * model.getNumberOfGuests();
-            });
+    this.updateDishes = function () {
+        listedDishes.empty();
 
+        model.menu.forEach(function (dish) {
             listedDishes.append(
                 "<div class='dishesList'>" +
-                data.Title +
+                dish.Title +
                 "</div>" +
                 "<span id='pending'>" +
-                price +
+                model.getTotalMenuPrice() +
                 "</span>" +
                 "<span id='" +
-                data.RecipeID +
+                dish.RecipeID +
                 "' class='btn btn-default removeDishButton'>x</span>"
             );
-            this.removeDishButton = container.find(".removeDishButton");
-        }
+        });
+
+        this.totalDinnerCost.html(
+            "<div>Total: " +
+            model.getTotalMenuPrice() +
+            " SEK</div>"
+        );
+        this.removeDishButton = container.find(".removeDishButton");
+
     }
 
     this.hide = function () {
@@ -64,7 +66,9 @@ var SidebarView = function (container, model) {
             this.updateDishes();
             this.updateTotalDinnerCost();
         } else if (dataType === "menu") {
-            this.updateDishes(data);
+            this.updateDishes();
+        } else if (dataType === "removed") {
+            this.updateDishes();
         }
         /*else {
     this.updateTotalDinnerCost();
