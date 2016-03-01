@@ -154,12 +154,27 @@ if (!sameFound) {
     //if you don't pass any filter all the dishes will be returned
     this.getAllDishes = function (type, filter) {
 
-        var titleKey = 'filter';
-        var anyKey = 'type';
+        if (type === 'undefined')
+
+            var titleKey = filter;
+        var anyKey = type;
         var pages = 1;
         var perPage = 20;
 
         var modelHolder = this;
+
+        console.log('http://api.bigoven.com/recipes?' +
+            'title_kw=' +
+            titleKey +
+            '&' +
+            'any_kw=' +
+            anyKey +
+            '&pg=' +
+            pages +
+            '&rpp=' +
+            perPage +
+            '&api_key=' +
+            this.apiKey)
 
         //BigOven JSON API Request
         $.ajax({
@@ -179,7 +194,7 @@ if (!sameFound) {
                 '&api_key=' +
                 this.apiKey,
             success: function (data) {
-                //console.log(data);
+                console.log('success');
                 modelHolder.notifyObservers(data, 'dishesList');
             },
             error: function (xhr, status, error) {

@@ -24,7 +24,8 @@ var ListOfDishesViewController = function (view, model) {
     view.searchButton.click(function () {
         var searchQuery = view.searchInput.val();
         var type = view.dropdown.text().trim();
-        view.updateButtons(type, searchQuery);
+        model.getAllDishes(type, searchQuery);
+        //view.updateButtons(type, searchQuery);
     });
 
 

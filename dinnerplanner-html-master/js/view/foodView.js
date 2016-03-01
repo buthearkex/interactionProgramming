@@ -12,6 +12,7 @@ var FoodView = function (container, model) {
     this.totalPrice = container.find('#totalPrice');
 
     this.savedId;
+    this.datas;
 
     this.updateView = function (data) {
         if (!(typeof data === 'undefined')) {
@@ -81,15 +82,17 @@ var FoodView = function (container, model) {
         //here we should remove the spinner
         if (dataType === 'food') {
             this.savedId = data.RecipeID;
+            this.datas = data;
             this.updateView(data);
         } else if (dataType === 'numberOfGuests') {
-            console.log('hop');
-            var mod = this;
+            this.updateView(this.datas);
+            /*var mod = this;
             model.getFullMenu().forEach(function (dish) {
                 if (dish.RecipeID == mod.savedId) {
+                    console.log('hop');
                     this.updateView(dish);
                 }
-            });
+            });*/
         }
     }
 
