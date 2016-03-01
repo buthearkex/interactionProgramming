@@ -9,6 +9,7 @@ var FoodView = function (container, model) {
     var ingreList = this.ingredientList;
     this.nbrOfGuests = container.find('.nbrGuests');
     this.foodDescription = container.find('#food-description');
+    this.foodInstructions = container.find('#food-instructions');
     this.totalPrice = container.find('#totalPrice');
 
     this.savedId;
@@ -28,6 +29,11 @@ var FoodView = function (container, model) {
                 data.Description +
                 "</p>" +
                 "<a id='backToSelectDishButton' class='btn btn-default'>Back to select dish</a>"
+            );
+            this.foodInstructions.html(
+                "<p>" +
+                data.Instructions +
+                "</p>"
             );
 
             var price = 0;
