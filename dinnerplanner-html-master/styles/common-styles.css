@@ -275,3 +275,25 @@
 .dropdown {
     display: inline;
 }
+
+/* Loading Image Styles */
+#loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: block;
+    background-color: rgba(255,219,72,0.5);
+    z-index: 99;
+    text-align: center;
+}
+
+#loading-image {
+    position:absolute;
+    width:230px; /*image width */
+    height:190px; /*image height */
+    left:50%; 
+    top:50%;
+    margin-left:-115px; /*image width/2 */
+    margin-top:-95px; /*image height/2 */
+    z-index: 100;
+}

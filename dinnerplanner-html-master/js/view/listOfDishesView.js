@@ -15,6 +15,7 @@ var ListOfDishesView = function (container, model) {
         var dishes = model.getAllDishes(type, filter);
         //if (!dishes) {
             //show spinner
+
         //}
 
         /*this.allDishes.empty();

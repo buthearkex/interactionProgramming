@@ -1,6 +1,8 @@
 //DinnerModel Object constructor
 var DinnerModel = function () {
 
+    $('#loading').hide();
+
     this.apiKey = '8vtk7KykflO5IzB96kb0mpot0sU40096';
 
     //OBSERVABLE
@@ -154,6 +156,8 @@ if (!sameFound) {
     //if you don't pass any filter all the dishes will be returned
     this.getAllDishes = function (type, filter) {
 
+        $('#loading').show();
+
         var titleKey = "";
         var anyKey = "";
         var pages = 1;
@@ -203,6 +207,9 @@ if (!sameFound) {
             success: function (data) {
                 console.log('success');
                 modelHolder.notifyObservers(data, 'dishesList');
+            },
+            complete: function (){
+                $('#loading').hide();
             },
             error: function (xhr, status, error) {
                 console.error(error);
