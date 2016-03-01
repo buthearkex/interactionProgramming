@@ -22,7 +22,11 @@ var SidebarView = function (container, model) {
     }
 
     this.updateTotalDinnerCost = function () {
-        this.totalDinnerCost.html(model.getTotalMenuPrice());
+        this.totalDinnerCost.html(
+            "<div>Total: " +
+            model.getTotalMenuPrice() +
+            " SEK</div>"
+        );
     }
 
     this.updateDishes = function () {
@@ -42,11 +46,6 @@ var SidebarView = function (container, model) {
             );
         });
 
-        this.totalDinnerCost.html(
-            "<div>Total: " +
-            model.getTotalMenuPrice() +
-            " SEK</div>"
-        );
         this.removeDishButton = container.find(".removeDishButton");
 
     }
@@ -60,8 +59,11 @@ var SidebarView = function (container, model) {
     }
 
     this.update = function (data, dataType) {
-        console.log(data, dataType);
-        if (dataType == "numberOfGuests") {
+        this.updateNumberOfGuests();
+        this.updateDishes();
+        this.updateTotalDinnerCost();
+
+        /*if (dataType == "numberOfGuests") {
             this.updateNumberOfGuests();
             this.updateDishes();
             this.updateTotalDinnerCost();
@@ -69,7 +71,7 @@ var SidebarView = function (container, model) {
             this.updateDishes();
         } else if (dataType === "removed") {
             this.updateDishes();
-        }
+        }*/
         /*else {
     this.updateTotalDinnerCost();
     this.updateDishes();

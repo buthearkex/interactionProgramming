@@ -1,7 +1,7 @@
 //DinnerModel Object constructor
 var DinnerModel = function () {
 
-    this.apiKey = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
+    this.apiKey = '8vtk7KykflO5IzB96kb0mpot0sU40096';
 
     //OBSERVABLE
     this.observers = [];
@@ -26,7 +26,7 @@ var DinnerModel = function () {
 
     this.setNumberOfGuests = function (num) {
         this.nbrGuests = num;
-        this.notifyObservers('numberOfGuests');
+        this.notifyObservers('', 'numberOfGuests');
     }
 
     // should return 

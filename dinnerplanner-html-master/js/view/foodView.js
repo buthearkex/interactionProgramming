@@ -80,8 +80,16 @@ var FoodView = function (container, model) {
     this.update = function (data, dataType) {
         //here we should remove the spinner
         if (dataType === 'food') {
-            console.log(data)
+            this.savedId = data.RecipeID;
             this.updateView(data);
+        } else if (dataType === 'numberOfGuests') {
+            console.log('hop');
+            var mod = this;
+            model.getFullMenu().forEach(function (dish) {
+                if (dish.RecipeID == mod.savedId) {
+                    this.updateView(dish);
+                }
+            });
         }
     }
 
