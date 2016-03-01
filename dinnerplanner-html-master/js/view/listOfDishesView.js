@@ -1,5 +1,7 @@
 var ListOfDishesView = function (container, model) {
 
+    model.addObserver(this);
+
     this.allDishes = container.find('#allDishes');
     this.startersFilter = container.find('#starters-filter');
     this.mainFilter = container.find('#main-filter');
@@ -11,28 +13,30 @@ var ListOfDishesView = function (container, model) {
 
     this.updateAllDishes = function (type, filter) {
         if (!filter && type == 'all') {
-            var dishes = model.getAllDishes().prevObject;
+            var dishes = model.getAllDishes();
         } else if (!filter) {
             var dishes = model.getAllDishes(type);
         } else if (type == 'all' && filter) {
-            var dishes = model.getAllDishes('starter', filter);
-            var mains = model.getAllDishes('main dish', filter);
-            var desserts = model.getAllDishes('dessert', filter);
-
-            this.handleAllTypes(dishes, mains, desserts);
-            return;
+            var dishes = model.getAllDishes('', filter);
+            //this.handleAllTypes(dishes, mains, desserts);
+            //return;
         } else {
             var dishes = model.getAllDishes(type, filter);
         }
 
-        this.allDishes.empty();
-        if (!dishes.length == 0) {
-            this.updateHTMLArray(dishes);
+        if (!dishes) {
+            //show spinner
         }
-        this.foodLinks = container.find('.food-link');
+
+        /*this.allDishes.empty();
+if (!dishes.length == 0) {
+    console.log(dishes);
+    this.updateHTMLArray(dishes);
+}
+this.foodLinks = container.find('.food-link');*/
     }
 
-    this.handleAllTypes = function (starters, mains, desserts) {
+    /*this.handleAllTypes = function (starters, mains, desserts) {
         starters = starters.toArray();
         mains = mains.toArray();
         desserts = desserts.toArray();
@@ -42,51 +46,30 @@ var ListOfDishesView = function (container, model) {
         if (dishes.length != 0) {
             this.updateHTMLArray(dishes);
         }
-    }
+    }*/
 
     this.updateHTMLArray = function (dishes) {
-
+        this.allDishes.empty();
         for (var i = 0; i < dishes.length; i++) {
             this.allDishes.append(
-                "<div class='col-md-3'>" +
+                "<div class='col-md-4'>" +
                 "<a id='" +
-                dishes[i].id +
+                dishes[i].RecipeID +
                 "' class='food-link'>" +
-                "<img class='img-responsive food-pic' src='images/" +
-                dishes[i].image +
+                "<img class='img-responsive food-pic' src='" +
+                dishes[i].ImageURL +
                 "'>" +
                 "<h2>" +
-                dishes[i].name +
+                dishes[i].Title +
                 "</h2>" +
                 "</a>" +
-                "<p>" +
-                dishes[i].description +
-                "</p>" +
+                /*"<p>" +
+dishes[i].description +
+    "</p>" +*/
                 "</div>"
             );
         }
-    }
-
-    this.updateHTML = function (dish) {
-
-        this.allDishes.append(
-            "<div class='col-md-3'>" +
-            "<a id='" +
-            dish.id +
-            "' class='food-link'>" +
-            "<img class='img-responsive food-pic' src='images/" +
-            dish.image +
-            "'>" +
-            "<h2>" +
-            dish.name +
-            "</h2>" +
-            "</a>" +
-            "<p>" +
-            dish.description +
-            "</p>" +
-            "</div>"
-        );
-
+        this.foodLinks = container.find('.food-link');
     }
 
     this.hide = function () {
@@ -97,7 +80,7 @@ var ListOfDishesView = function (container, model) {
     }
 
 
-    this.update = function (type, filter) {
+    this.updateButtons = function (type, filter) {
 
         if (type === "starter") {
             this.updateAllDishes(type, filter);
@@ -109,6 +92,16 @@ var ListOfDishesView = function (container, model) {
             this.updateAllDishes("all", filter);
         }
     }
+
+    this.update = function (data, dataType) {
+        if (dataType === "dishesList") {
+            //check for errors if()
+            console.log(data);
+            console.log(data.Results);
+            this.updateHTMLArray(data.Results);
+        }
+    }
+
 
     this.updateAllDishes("all");
 

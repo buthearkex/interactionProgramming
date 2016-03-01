@@ -13,46 +13,54 @@ var FoodView = function (container, model) {
 
     this.savedId;
 
-    this.updateView = function (id) {
-        if (!(typeof id === 'undefined')) {
+    this.updateView = function (data) {
+        if (!(typeof data === 'undefined')) {
+            console.log('tanne');
             this.foodDescription.html(
                 "<h2>" +
-                model.getDish(id).name +
+                data.Title +
                 "</h2>" +
-                "<img class='img-resposive' src='../images/" +
-                model.getDish(id).image +
+                "<img class='img-resposive' src='" +
+                data.ImageURL +
                 "'>" +
                 "<p>" +
-                model.getDish(id).description +
+                data.Description +
                 "</p>" +
                 "<a id='backToSelectDishButton' class='btn btn-default'>Back to select dish</a>"
             );
 
+            var price = 0;
+
             ingreList.empty();
-            model.getDish(id).ingredients.forEach(function (ingr) {
+            data.Ingredients.forEach(function (ingr) {
                 ingreList.append(
                     "<div class='row'>" +
                     "<div class='col-sm-3'>" +
-                    ingr.name +
+                    ingr.Name +
                     "</div>" +
                     "<div class='col-sm-3'>" +
-                    ingr.quantity * model.getNumberOfGuests() +
+                    ingr.MetricQuantity * model.getNumberOfGuests() +
+                    " " +
+                    ingr.Unit +
                     "</div>" +
                     "<div class='col-sm-3'>SEK</div>" +
                     "<div class='col-sm-3'>" +
-                    ingr.price * model.getNumberOfGuests() +
+                    ingr.MetricQuantity * model.getNumberOfGuests() +
                     "</div>" +
                     "</div>"
                 );
+                price += ingr.MetricQuantity * model.getNumberOfGuests();
             });
 
             this.backToSelectDishButton = container.find("#backToSelectDishButton");
 
-            this.confirmDishButton.attr('id', id);
+            this.confirmDishButton.attr('id', data.RecipeID);
 
             this.nbrOfGuests.html(model.getNumberOfGuests());
 
-            this.totalPrice.html(model.getPriceOfDish(id));
+            this.totalPrice.html(price);
+        } else {
+            //show spinner
         }
         this.backToSelectDishButton = container.find("#backToSelectDishButton");
     }
@@ -63,12 +71,18 @@ var FoodView = function (container, model) {
 
     this.show = function (id) {
         this.savedId = id;
-        this.updateView(id);
+        model.getDish(id, 'food');
+
         container.show();
+        //here we should show a spinner
     }
 
-    this.update = function () {
-        this.updateView(this.savedId);
+    this.update = function (data, dataType) {
+        //here we should remove the spinner
+        if (dataType === 'food') {
+            console.log(data)
+            this.updateView(data);
+        }
     }
 
     this.updateView();

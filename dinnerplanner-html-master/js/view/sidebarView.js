@@ -25,22 +25,28 @@ var SidebarView = function (container, model) {
         this.totalDinnerCost.html(model.getTotalMenuPrice());
     }
 
-    this.updateDishes = function () {
-        listedDishes.empty();
-        model.getFullMenu().forEach(function (menuItem, index) {
+    this.updateDishes = function (data) {
+        if (!(typeof data === 'undefined')) {
+            console.log(data);
+            listedDishes.empty();
+            var price = 0;
+            data.Ingredients.forEach(function (ingr) {
+                price += ingr.MetricQuantity * model.getNumberOfGuests();
+            });
+
             listedDishes.append(
                 "<div class='dishesList'>" +
-                menuItem.name +
+                data.Title +
                 "</div>" +
                 "<span id='pending'>" +
-                model.getPriceOfDish(menuItem.id) +
+                price +
                 "</span>" +
                 "<span id='" +
-                menuItem.id +
+                data.RecipeID +
                 "' class='btn btn-default removeDishButton'>x</span>"
             );
-        });
-        this.removeDishButton = container.find(".removeDishButton");
+            this.removeDishButton = container.find(".removeDishButton");
+        }
     }
 
     this.hide = function () {
@@ -51,21 +57,25 @@ var SidebarView = function (container, model) {
         container.show();
     }
 
-    this.update = function (obj) {
-        if (obj == "numberOfGuests") {
+    this.update = function (data, dataType) {
+        console.log(data, dataType);
+        if (dataType == "numberOfGuests") {
             this.updateNumberOfGuests();
             this.updateDishes();
             this.updateTotalDinnerCost();
-        } else {
-            this.updateTotalDinnerCost();
-            this.updateDishes();
-            this.updateTotalDinnerCost();
+        } else if (dataType === "menu") {
+            this.updateDishes(data);
         }
+        /*else {
+    this.updateTotalDinnerCost();
+    this.updateDishes();
+    this.updateTotalDinnerCost();
+}*/
 
     }
 
     //call the functions at the end to set initial values
-    this.updateNumberOfGuests();
-    this.updateTotalDinnerCost();
-    this.updateDishes();
+    /*this.updateNumberOfGuests();
+this.updateTotalDinnerCost();
+this.updateDishes();*/
 }

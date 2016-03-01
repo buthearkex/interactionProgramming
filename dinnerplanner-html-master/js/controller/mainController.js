@@ -18,7 +18,9 @@ var MainController = function (homeView, sidebarView, listOfDishesView, foodView
 
     listOfDishesView.allDishes.on("click", ".food-link", function () {
         listOfDishesView.hide();
+        console.log(this.id);
         foodView.show(this.id);
+
 
         foodView.backToSelectDishButton.click(function () {
             foodView.hide();

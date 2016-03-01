@@ -2,10 +2,6 @@ $(function () {
     //We instantiate our model
     var model = new DinnerModel();
 
-    model.addDishToMenu(1);
-    model.addDishToMenu(100);
-    model.addDishToMenu(200);
-
     var homeView = new HomeView($('#home-screen'), model);
     //var homeViewController = new HomeViewController(homeView, model);
 
