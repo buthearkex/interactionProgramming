@@ -71,6 +71,16 @@ var FoodView = function (container, model) {
     this.backToSelectDishButton = container.find("#backToSelectDishButton");
   }
 
+  this.showError = function (error) {
+    this.foodDescription.html(
+      "<div>" +
+      "There was an " +
+      error +
+      ". Please check your internet connection!" +
+      "</div>"
+    );
+  }
+
   this.hide = function () {
     container.hide();
   }
@@ -98,6 +108,8 @@ var FoodView = function (container, model) {
               this.updateView(dish);
           }
       });*/
+    } else if (dataType === 'error') {
+      this.showError(data);
     }
   }
 

@@ -209,7 +209,8 @@ if (!sameFound) {
         $('#loading').hide();
       },
       error: function (xhr, status, error) {
-        console.error(error);
+        console.log(status);
+        modelHolder.notifyObservers(status, 'error');
       }
     });
 
@@ -260,6 +261,7 @@ if (!sameFound) {
       },
       error: function (xhr, status, error) {
         console.error(error);
+        modelHolder.notifyObservers(status, 'error');
       }
     });
 

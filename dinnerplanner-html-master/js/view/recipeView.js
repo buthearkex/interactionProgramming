@@ -30,6 +30,13 @@ var RecipeView = function (container, model) {
         "</div>"
       );
     }
+    if (menuItems.length == 0) {
+      this.recipe.html(
+        "<div>" +
+        "You haven't selected any dishes!" +
+        "</div>"
+      );
+    }
   }
 
   this.hide = function () {

@@ -34,6 +34,15 @@ var DinnerOverviewView = function (container, model) {
       "</div>" +
       "</div>"
     );
+
+    if (overviewItems.length == 0) {
+      console.log(overviewItems.length);
+      this.overviewFullMenuList.html(
+        "<div>" +
+        "You haven't selected any dishes!" +
+        "</div>"
+      );
+    }
   }
 
   this.hide = function () {
@@ -51,6 +60,6 @@ var DinnerOverviewView = function (container, model) {
 
   }
 
-  //this.updateMenu();
+  this.updateMenu();
 
 }
