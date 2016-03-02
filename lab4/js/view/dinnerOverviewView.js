@@ -53,9 +53,9 @@ var DinnerOverviewView = function (container, model) {
     }
 
     this.update = function (data, dataType) {
-        if (dataType === 'menu') {
-            this.updateMenu(data);
-        }
+        //if (dataType === 'menu') {
+        this.updateMenu(data);
+        //}
 
     }
 

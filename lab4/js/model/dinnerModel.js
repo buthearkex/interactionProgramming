@@ -3,7 +3,7 @@ var DinnerModel = function () {
 
     $('#loading').hide();
 
-    this.apiKey = '8vtk7KykflO5IzB96kb0mpot0sU40096';
+    this.apiKey = '3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4';
 
     //OBSERVABLE
     this.observers = [];
