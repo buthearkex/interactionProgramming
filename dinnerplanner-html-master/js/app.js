@@ -30,4 +30,27 @@ $(function () {
     $(this).prev('input').val('').focus();
   }));
 
+  var toggle = false;
+  $('#hamburger').click(function () {
+    if (!toggle) {
+      $('#page-content-wrapper').css('padding-left', '250px');
+      $('#sidebar-wrapper').css('width', '250px');
+      toggle = true;
+    } else {
+      $('#page-content-wrapper').css('padding-left', '0px');
+      $('#sidebar-wrapper').css('width', '0px');
+      toggle = false;
+    }
+  });
+
+  $(window).resize(function () {
+
+    if ($(window).width() > '768') {
+      console.log('naki');
+      $('#page-content-wrapper').css('padding-left', '0px');
+    } else {
+      $('#sidebar-wrapper').css('width', '0px');
+    }
+  });
+
 });
