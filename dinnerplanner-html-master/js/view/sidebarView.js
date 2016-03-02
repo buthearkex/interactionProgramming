@@ -38,7 +38,7 @@ var SidebarView = function (container, model) {
         dish.Title +
         "</div>" +
         "<span id='pending'>" +
-        Math.round(model.getTotalMenuPrice()) +
+        Math.round(model.getPriceOfDish(dish.RecipeID)) +
         "</span>" +
         "<img id='" +
         dish.RecipeID +
