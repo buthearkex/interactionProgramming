@@ -19,18 +19,18 @@ Instructions, Ingredients and total cost. -->
       <a class='btn btn-default' ng-href="#/search">Back to select dish</a>
     </div>
     <div class="col-md-6 recipe">
-      <h4>Ingredients for {{numberOfGuests}} people</h4>
+      <h4>Ingredients for {{getNumberOfGuests()}} people</h4>
       <div class="line"></div>
       <div class='row' ng-repeat="ingr in dish.Ingredients">
         <div class='col-sm-3'>
           {{ingr.Name}}
         </div>
         <div class='col-sm-3'>
-          {{ingr.MetricQuantity * numberOfGuests}} {{ingr.Unit}}
+          {{ingr.MetricQuantity * getNumberOfGuests()}} {{ingr.Unit}}
         </div>
         <div class='col-sm-3'>SEK</div>
         <div class='col-sm-3'>
-          {{ingr.MetricQuantity * numberOfGuests}}
+          {{ingr.MetricQuantity * getNumberOfGuests()}}
         </div>
       </div>
 
@@ -38,7 +38,7 @@ Instructions, Ingredients and total cost. -->
         <div></div>
         <div class="line"></div>
         <a class="btn btn-default">Confirm dish</a>
-        <p>{{totalPrice}} SEK</p>
+        <p>{{getTotalPrice()}} SEK</p>
       </div>
     </div>
     <div class="row">

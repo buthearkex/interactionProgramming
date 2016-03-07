@@ -6,7 +6,9 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner) 
   // $routingParams.paramName
   // Check the app.js to figure out what is the paramName in this case
 
-  $scope.numberOfGuests = Dinner.getNumberOfGuests();
+  $scope.getNumberOfGuests = function () {
+    return Dinner.getNumberOfGuests();
+  }
 
   $scope.getInfo = function () {
     $scope.status = "Searching...";
@@ -15,7 +17,9 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner) 
     }, function (data) {
       $scope.dish = data;
       console.log(data);
-      $scope.totalPrice = Dinner.getPriceOfDish($scope.dish);
+      $scope.getTotalPrice = function () {
+        return Dinner.getPriceOfDish($scope.dish);
+      }
       $scope.status = "Showing result";
     }, function (data) {
       $scope.status = "There was an error";
