@@ -18,6 +18,15 @@ dinnerPlannerApp.factory('Dinner', function ($resource) {
     return numberOfGuest;
   }
 
+  //Returns all the dishes on the menu.
+  this.getFullMenu = function () {
+    return this.menu;
+  }
+
+  this.addDishToMenu = function (dish) {
+    this.menu.push(dish);
+  }
+
   this.getTotalMenuPrice = function () {
     var mod = this;
     var totalPrice = 0;
@@ -64,10 +73,7 @@ dinnerPlannerApp.factory('Dinner', function ($resource) {
     return selectedDish;
   }
 
-  //Returns all the dishes on the menu.
-  this.getFullMenu = function () {
-    return this.menu;
-  }
+
 
   //Returns all ingredients for all the dishes on the menu.
   this.getAllIngredients = function () {
@@ -78,7 +84,7 @@ dinnerPlannerApp.factory('Dinner', function ($resource) {
     return allIngredients;
   }
 
-  this.addDishToMenu = function (id) {}
+
 
   this.removeDishFromMenu = function (id) {
 
