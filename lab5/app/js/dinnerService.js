@@ -7,7 +7,7 @@ dinnerPlannerApp.factory('Dinner', function ($resource) {
 
   var numberOfGuest = 2;
   this.menu = [];
-  this.API_KEY = '3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4';
+  this.API_KEY = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
 
 
   this.setNumberOfGuests = function (num) {
@@ -26,7 +26,7 @@ dinnerPlannerApp.factory('Dinner', function ($resource) {
         totalPrice += ingr.MetricQuantity;
       });
     });
-    return totalPrice * this.getNumberOfGuests();
+    return 100; //totalPrice * this.getNumberOfGuests();
   }
 
 
@@ -95,19 +95,12 @@ dinnerPlannerApp.factory('Dinner', function ($resource) {
   }
 
   //Mikko's adidtional helper method
-  this.getPriceOfDish = function (id) {
+  this.getPriceOfDish = function (data) {
     var price = 0;
-    var copy = this;
-    this.menu.forEach(function (dish) {
-      /*console.log(dish.RecipeID);
-      console.log(id);*/
-      if (dish.RecipeID == id) {
-
-        dish.Ingredients.forEach(function (ingredient) {
-          //console.log(ingredient);
-          price += ingredient.MetricQuantity * copy.getNumberOfGuests();
-        });
-      }
+    console.log(data);
+    num = numberOfGuest;
+    data.Ingredients.forEach(function (ingr) {
+      price += ingr.MetricQuantity * num;
     });
     return price;
   }

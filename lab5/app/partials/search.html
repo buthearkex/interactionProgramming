@@ -16,23 +16,15 @@ not support it in free version) and list all the dishes that match the search. -
       <div class="line"></div>
       <input type="search" class="deletable" ng-model="query">
       <button type="button" class="btn btn-default" ng-click="search(query)">Search</button>
-      <!--<div class="dropdown">
-                <button id="dropdown-text" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dish type<span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a id="starters-filter">starter</a></li>
-                    <li><a id="main-filter">main dish</a></li>
-                    <li><a id="dessert-filter">dessert</a></li>
-                    <li><a id="all-filter">all</a></li>
-                </ul>
-            </div>-->
     </div>
   </div>
-  {{status}}
   <div id="allDishes" class="row foods-list">
+    {{status}}
     <div class='col-md-4' ng-repeat="dish in dishes">
       <a class='food-link' ng-href="#/dish/{{dish.RecipeID}}">
         <img class='img-responsive food-pic' ng-src="{{dish.ImageURL}}">
-        <h2>{{dish.Title}}</h2> {{dish.Category}} {{dish.Subcategory}}
+        <h2>{{dish.Title}}</h2>
+        <!--{{dish.Category}} {{dish.Subcategory}}-->
       </a>
     </div>
   </div>

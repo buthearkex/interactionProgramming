@@ -3,3 +3,53 @@
 
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
+
+
+<div class="container-fluid" ng-init="getInfo()">
+  <div class="row foods">
+    <div class="col-md-6">
+      {{status}}
+      <h2>
+       {{dish.Title}}
+        </h2>
+      <img class='img-resposive big-pic' ng-src="{{dish.ImageURL}}">
+      <p>
+        {{dish.Description}}
+      </p>
+      <a class='btn btn-default' ng-href="#/search">Back to select dish</a>
+    </div>
+    <div class="col-md-6 recipe">
+      <h4>Ingredients for {{numberOfGuests}} people</h4>
+      <div class="line"></div>
+      <div class='row' ng-repeat="ingr in dish.Ingredients">
+        <div class='col-sm-3'>
+          {{ingr.Name}}
+        </div>
+        <div class='col-sm-3'>
+          {{ingr.MetricQuantity * numberOfGuests}} {{ingr.Unit}}
+        </div>
+        <div class='col-sm-3'>SEK</div>
+        <div class='col-sm-3'>
+          {{ingr.MetricQuantity * numberOfGuests}}
+        </div>
+      </div>
+
+      <div>
+        <div></div>
+        <div class="line"></div>
+        <a class="btn btn-default">Confirm dish</a>
+        <p>{{totalPrice}} SEK</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-11 instructions">
+        <h2>PREPARATION</h2>
+        <div>
+          <p>
+            {{dish.Instructions}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
