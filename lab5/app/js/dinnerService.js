@@ -5,40 +5,117 @@
 // the next time.
 dinnerPlannerApp.factory('Dinner', function ($resource) {
 
-    var numberOfGuest = 2;
-    var totalPrice = 100;
+  var numberOfGuest = 2;
+  this.menu = [];
+  this.API_KEY = '3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4';
 
 
-    this.setNumberOfGuests = function (num) {
-        numberOfGuest = num;
-    }
+  this.setNumberOfGuests = function (num) {
+    numberOfGuest = num;
+  }
 
-    this.getNumberOfGuests = function () {
-        return numberOfGuest;
-    }
+  this.getNumberOfGuests = function () {
+    return numberOfGuest;
+  }
 
-    this.getTotalMenuPrice = function () {
-        return totalPrice;
-    }
-
-
-
-
-
-    // TODO in Lab 5: Add your model code from previous labs
-    // feel free to remove above example code
-    // you will need to modify the model (getDish and getAllDishes) 
-    // a bit to take the advantage of Angular resource service
-    // check lab 5 instructions for details
+  this.getTotalMenuPrice = function () {
+    var mod = this;
+    var totalPrice = 0;
+    this.menu.forEach(function (dish) {
+      dish.Ingredients.forEach(function (ingr) {
+        totalPrice += ingr.MetricQuantity;
+      });
+    });
+    return totalPrice * this.getNumberOfGuests();
+  }
 
 
 
 
 
-    // Angular service needs to return an object that has all the
-    // methods created in it. You can consider that this is instead
-    // of calling var model = new DinnerModel() we did in the previous labs
-    // This is because Angular takes care of creating it when needed.
-    return this;
+  // TODO in Lab 5: Add your model code from previous labs
+  // feel free to remove above example code
+  // you will need to modify the model (getDish and getAllDishes) 
+  // a bit to take the advantage of Angular resource service
+  // check lab 5 instructions for details
+
+
+
+  this.DishSearch = $resource('http://api.bigoven.com/recipes', {
+    pg: 1,
+    rpp: 25,
+    api_key: this.API_KEY
+  });
+
+  this.Dish = $resource('http://api.bigoven.com/recipe/:id', {
+    api_key: this.API_KEY
+  });
+
+
+  //Returns the dish that is on the menu for selected type 
+  this.getSelectedDish = function (type) {
+    //only one dish per type
+    var selectedDish;
+    menu.forEach(function (dish) {
+      if (dish.type == type) {
+        selectedDish = dish;
+      }
+    });
+    return selectedDish;
+  }
+
+  //Returns all the dishes on the menu.
+  this.getFullMenu = function () {
+    return this.menu;
+  }
+
+  //Returns all ingredients for all the dishes on the menu.
+  this.getAllIngredients = function () {
+    var allIngredients = [];
+    menu.forEach(function (dish) {
+      allIngredients.push(dish.ingredients);
+    });
+    return allIngredients;
+  }
+
+  this.addDishToMenu = function (id) {}
+
+  this.removeDishFromMenu = function (id) {
+
+    var mod = this;
+    this.menu.forEach(function (dish, index) {
+      if (dish.RecipeID == id) {
+
+        mod.menu.splice(index, 1);
+        mod.notifyObservers(id, "removed");
+        return;
+      }
+    });
+
+  }
+
+  //Mikko's adidtional helper method
+  this.getPriceOfDish = function (id) {
+    var price = 0;
+    var copy = this;
+    this.menu.forEach(function (dish) {
+      /*console.log(dish.RecipeID);
+      console.log(id);*/
+      if (dish.RecipeID == id) {
+
+        dish.Ingredients.forEach(function (ingredient) {
+          //console.log(ingredient);
+          price += ingredient.MetricQuantity * copy.getNumberOfGuests();
+        });
+      }
+    });
+    return price;
+  }
+
+  // Angular service needs to return an object that has all the
+  // methods created in it. You can consider that this is instead
+  // of calling var model = new DinnerModel() we did in the previous labs
+  // This is because Angular takes care of creating it when needed.
+  return this;
 
 });

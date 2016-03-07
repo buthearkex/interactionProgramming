@@ -7,31 +7,27 @@ this with Total price of the menu -->
 
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
-    <div class="sidebar-nav">
-        <div class="sidebar-brand">
-            <a href="#">My Dinner</a>
-        </div>
-        <div>
-            <div id="exampleView">
-                <div class="numg">
-                    Number of guests:
-                    <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)" />
-                </div>
-                <div>
-                    <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-                    <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-                </div>
-            </div>
-        </div>
-        <div id="menuHeader">
-            <p>Dish Name</p>
-            <p class="right">Cost</p>
-        </div>
-        <div id="listedDishes"></div>
-        <div class="line"></div>
-        <div id="totalDinnerCost">Total dinner cost: {{getTotalMenuPrice()}}</div>
-
-        <a href="#/overview" id="confirmDinnerButton" class="btn btn-default">Confirm Dinner</a>
+  <div class="sidebar-nav">
+    <div class="sidebar-brand">
+      <a href="#">My Dinner</a>
     </div>
+    <div>
+      <div id="exampleView">
+        <div class="numg">
+          Number of guests:
+          <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)" />
+        </div>
+      </div>
+    </div>
+    <div id="menuHeader">
+      <p>Dish Name</p>
+      <p class="right">Cost</p>
+    </div>
+    <div id="listedDishes"></div>
+    <div class="line"></div>
+    <div id="totalDinnerCost">Total dinner cost: {{getTotalMenuPrice()}}</div>
+
+    <a href="#/overview" id="confirmDinnerButton" class="btn btn-default">Confirm Dinner</a>
+  </div>
 </div>
 <!-- /#sidebar-wrapper -->

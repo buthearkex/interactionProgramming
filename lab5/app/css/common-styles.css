@@ -169,6 +169,7 @@
   position: fixed;
   z-index: 2;
   padding-bottom: 10px;
+  padding-left: 260px;
 }
 .foods {
   z-index: 1;
@@ -294,6 +295,10 @@ body {
 }
 .numg {
   font-size: 20px;
+  width: 200px;
+}
+.numg > * {
+  width: 90%;
 }
 span.deleteicon {
   position: relative;
