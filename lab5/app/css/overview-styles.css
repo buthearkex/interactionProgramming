@@ -1,0 +1,23 @@
+.overview-pic {
+    width: 100px;
+}
+
+.border {
+    border-left: 1px solid black;
+}
+
+.float-right {
+    float: right;
+}
+
+.filter-bar {
+	margin-bottom: 50px;
+}
+
+.float-right {
+	margin-right: 60px;
+}
+
+.centerButton {
+	float: right;
+}
