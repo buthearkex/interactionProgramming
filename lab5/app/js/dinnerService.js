@@ -3,15 +3,20 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-dinnerPlannerApp.factory('Dinner', function ($resource) {
+dinnerPlannerApp.factory('Dinner', function ($resource, $cookieStore) {
 
-  var numberOfGuest = 2;
+  if (!$cookieStore.get('numberOfGuest')) {
+    var numberOfGuest = 2;
+  } else {
+    var numberOfGuest = $cookieStore.get('numberOfGuest');
+  }
   this.menu = [];
   this.API_KEY = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
 
 
   this.setNumberOfGuests = function (num) {
     numberOfGuest = num;
+    $cookieStore.put('numberOfGuest', num);
   }
 
   this.getNumberOfGuests = function () {
