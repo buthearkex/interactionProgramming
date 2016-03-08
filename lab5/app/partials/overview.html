@@ -1,24 +1,33 @@
-<!--maybe overview bar should be separate?-->
-<!--overview bar-->
-<div id="overview-bar" class="filter-bar"><span class="hed-text">My Dinner: <span id="numberOfGuests"></span> people</span>
-    <a href="#/search" id="go-back" class="btn btn-default float-right">Go back and  edit dinner</a>
-</div>
-<!--end of overview bar-->
+<ng-include src="'partials/overview-bar.html'" ng-controller="DinnerCtrl"></ng-include>
+
 
 <!--dinner overview-->
 <div id="dinner-overview" class="container-fluid">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div id="overviewFullMenuList" class="col-md-6"></div>
-        <div class="col-md-1" id="full-price"></div>
-        <div class="col-md-2"></div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div id="overviewFullMenuList" class="col-md-6">
+      <div class='col-md-3 thumbnail' ng-repeat="dish in getMenu">
+        <img class='img-responsive overview-pic' ng-src="{{dish.ImageURL}}">
+        <p>{{dish.Title}}</p>
+        <p> {{getDishPrice(dish) | number:1}} SEK</p>
+      </div>
     </div>
-    <div class="row border-up">
-        <div class="col-md-2"></div>
-        <div class="col-md-6">
-            <a href="#/print" id="print" class="btn btn-default centerButton">Print full recipe</a>
+    <div class="col-md-1" id="full-price">
+      <div class='col-md-3 border'>
+        <p>Total:</p>
+        <div>
+          <p>{{getTotalMenuPrice() | number:1}} SEK</p>
         </div>
-        <div class="col-md-2"></div>
+      </div>
     </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row border-up">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <a href="#/print" id="print" class="btn btn-default centerButton">Print full recipe</a>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
 </div>
 <!--end of dinner overview-->
