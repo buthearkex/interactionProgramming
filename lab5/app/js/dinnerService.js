@@ -10,9 +10,16 @@ dinnerPlannerApp.factory('Dinner', function ($resource, $cookieStore) {
   } else {
     var numberOfGuest = $cookieStore.get('numberOfGuest');
   }
-  this.menu = [];
-  this.API_KEY = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
 
+  this.menu = [];
+
+  if (!$cookieStore.get('IDs')) {
+    this.menuIDs = [];
+  } else {
+    this.menuIDs = $cookieStore.get('IDs');
+  }
+
+  this.API_KEY = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
 
   this.setNumberOfGuests = function (num) {
     numberOfGuest = num;
@@ -28,8 +35,15 @@ dinnerPlannerApp.factory('Dinner', function ($resource, $cookieStore) {
     return this.menu;
   }
 
+  this.getFullIDs = function () {
+    return this.menuIDs;
+  }
+
   this.addDishToMenu = function (dish) {
     this.menu.push(dish);
+    this.menuIDs.push(dish.RecipeID);
+    $cookieStore.put('IDs', this.menuIDs);
+    console.log(this.menuIDs);
   }
 
   this.removeDishFromMenu = function (id) {
@@ -37,6 +51,9 @@ dinnerPlannerApp.factory('Dinner', function ($resource, $cookieStore) {
     this.menu.forEach(function (dish, index) {
       if (dish.RecipeID == id) {
         mod.menu.splice(index, 1);
+        mod.menuIDs.splice(index, 1);
+        $cookieStore.put('IDs', mod.menuIDs);
+        console.log(mod.menuIDs);
         return;
       }
     });
