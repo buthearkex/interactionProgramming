@@ -27,19 +27,28 @@ dinnerPlannerApp.factory('Dinner', function ($resource) {
     this.menu.push(dish);
   }
 
-  this.getTotalMenuPrice = function () {
+  this.removeDishFromMenu = function (id) {
     var mod = this;
+    this.menu.forEach(function (dish, index) {
+      if (dish.RecipeID == id) {
+        mod.menu.splice(index, 1);
+        return;
+      }
+    });
+  }
+
+  this.getTotalMenuPrice = function () {
     var totalPrice = 0;
+    if (this.menu.length == 0) {
+      return 0;
+    }
     this.menu.forEach(function (dish) {
       dish.Ingredients.forEach(function (ingr) {
         totalPrice += ingr.MetricQuantity;
       });
     });
-    return 100; //totalPrice * this.getNumberOfGuests();
+    return totalPrice * this.getNumberOfGuests();
   }
-
-
-
 
 
   // TODO in Lab 5: Add your model code from previous labs
@@ -86,24 +95,9 @@ dinnerPlannerApp.factory('Dinner', function ($resource) {
 
 
 
-  this.removeDishFromMenu = function (id) {
-
-    var mod = this;
-    this.menu.forEach(function (dish, index) {
-      if (dish.RecipeID == id) {
-
-        mod.menu.splice(index, 1);
-        mod.notifyObservers(id, "removed");
-        return;
-      }
-    });
-
-  }
-
   //Mikko's adidtional helper method
   this.getPriceOfDish = function (data) {
     var price = 0;
-    console.log(data);
     num = numberOfGuest;
     data.Ingredients.forEach(function (ingr) {
       price += ingr.MetricQuantity * num;

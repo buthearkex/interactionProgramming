@@ -6,6 +6,9 @@ Instructions, Ingredients and total cost. -->
 
 
 <div class="container-fluid" ng-init="getInfo()">
+  <div id="loading" ng-show="status == 'Searching...'">
+    <img id="loading-image" src="images/Annoying_Dog.gif" alt="Loading..." />
+  </div>
   <div class="row foods">
     <div class="col-md-6">
       {{status}}
@@ -26,11 +29,11 @@ Instructions, Ingredients and total cost. -->
           {{ingr.Name}}
         </div>
         <div class='col-sm-3'>
-          {{ingr.MetricQuantity * getNumberOfGuests()}} {{ingr.Unit}}
+          {{ingr.MetricQuantity * getNumberOfGuests() | number:1}} {{ingr.Unit}}
         </div>
         <div class='col-sm-3'>SEK</div>
         <div class='col-sm-3'>
-          {{ingr.MetricQuantity * getNumberOfGuests()}}
+          {{ingr.MetricQuantity * getNumberOfGuests() | number:1}}
         </div>
       </div>
 

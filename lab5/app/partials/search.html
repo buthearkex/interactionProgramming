@@ -7,9 +7,9 @@ not support it in free version) and list all the dishes that match the search. -
 <!--list of dishes-->
 <div id="list-of-dishes" class="container-fluid">
   <!--Loading image-->
-  <!--<div id="loading">
-        <img id="loading-image" src="images/Annoying_Dog.gif" alt="Loading..." />
-    </div>-->
+  <div id="loading" ng-show="status == 'Searching...'">
+    <img id="loading-image" src="images/Annoying_Dog.gif" alt="Loading..." />
+  </div>
   <div class="row">
     <div class="col-xs-12 search-heading">
       <h3>Select Dish</h3>

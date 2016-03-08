@@ -23,17 +23,17 @@ this with Total price of the menu -->
       <p>Dish Name</p>
       <p class="right">Cost</p>
     </div>
-    <div id="listedDishes" ng-repeat="dish in menu">
+    <div id="listedDishes" ng-repeat="dish in fullMenu">
       <div class='dishesList'>
-        {{dish}}
+        {{dish.Title}}
       </div>
       <span id='pending'>
-        Math.round(model.getPriceOfDish(dish.RecipeID)) +
+        {{getDishPrice(dish) | number:1}}
         </span>
-      <img id='dish.RecipeID' class='removeDishButton' src='../../images/delete.jpg' />
+      <img class='removeDishButton' src='../../images/delete.jpg' ng-click="removeDish(dish.RecipeID)" />
     </div>
     <div class="line"></div>
-    <div id="totalDinnerCost">Total dinner cost: {{getNumberOfGuests()}}</div>
+    <div id="totalDinnerCost">Total dinner cost: {{getTotalMenuPrice() | number:1}}</div>
 
     <a href="#/overview" id="confirmDinnerButton" class="btn btn-default">Confirm Dinner</a>
   </div>
