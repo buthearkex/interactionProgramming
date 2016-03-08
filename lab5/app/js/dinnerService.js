@@ -127,6 +127,19 @@ dinnerPlannerApp.factory('Dinner', function ($resource, $cookieStore) {
     return price;
   }
 
+  this.load = function () {
+    var copy = this;
+    this.menuIDs.forEach(function (ids) {
+      copy.Dish.get({
+        id: ids
+      }, function (data) {
+        copy.menu.push(data);
+      }, function (data) {
+
+      });
+    })
+  }
+
   // Angular service needs to return an object that has all the
   // methods created in it. You can consider that this is instead
   // of calling var model = new DinnerModel() we did in the previous labs
