@@ -37,6 +37,18 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope, Dinner) {
         }
     }
 
+    $scope.setCSS = function () {
+        if ($('#wrapper').css('padding-left') == '250px') {
+            $("#wrapper").css('padding-left', '0px');
+        } else {
+            $("#wrapper").css('padding-left', '250px');
+        }
+    }
+
+    $scope.setPadding = function () {
+        $("#wrapper").css('padding-left', '0px');
+    }
+
     // TODO in Lab 5: Implement the methods to get the dinner menu
     // add dish to menu and get total menu price
 

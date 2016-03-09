@@ -4,10 +4,10 @@ looks a bit nicer. -->
 <link rel="stylesheet" href="css/home-styles.css">
 
 <!--Home screen-->
-<div id="home-screen" ng-controller="CssCtrl" ng-init="setPadding()">
+<div id="home-screen" ng-init="setPadding()">
     <img class="bg-img" src="images/bg-img.jpg" alt="nice background">
 
-    <section class="container">
+    <section class="container" ng-controller="CssCtrl">
         <div class="row">
             <div class="col-md-6">
                 <div class="text-box">
