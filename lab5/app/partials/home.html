@@ -4,25 +4,25 @@ looks a bit nicer. -->
 <link rel="stylesheet" href="css/home-styles.css">
 
 <!--Home screen-->
-<div id="home-screen">
-    <img class="bg-img" src="images/bg-img.jpg" alt="nice background">
+<div id="home-screen" ng-init="setPadding()">
+  <img class="bg-img" src="images/bg-img.jpg" alt="nice background">
 
-    <section class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="text-box">
-                    <h3>A Home Dinner Service</h3>
+  <section class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-box">
+          <h3>A Home Dinner Service</h3>
 
-                    <div class="line"></div>
+          <div class="line"></div>
 
-                    <p>Sweet roll jelly-o cake wafer. Brownie gummies pie ice cream jelly-o chocolate donut fruitcake. Biscuit muffin marshmallow tiramisu. Candy cake candy tart chocolate candy canes. Sweet chupa chups halvah sugar plum caramels. Sesame snaps icing ice cream cupcake candy canes. Pastry fruitcake marzipan. Pie gingerbread cheesecake jelly beans. Jujubes icing bonbon chocolate bar. Marzipan lemon drops cheesecake. Candy cupcake wafer sugar plum bonbon danish halvah. Chocolate cake pudding dessert icing liquorice cupcake dessert sesame snaps. Chocolate toffee caramels.</p>
+          <p>Sweet roll jelly-o cake wafer. Brownie gummies pie ice cream jelly-o chocolate donut fruitcake. Biscuit muffin marshmallow tiramisu. Candy cake candy tart chocolate candy canes. Sweet chupa chups halvah sugar plum caramels. Sesame snaps icing ice cream cupcake candy canes. Pastry fruitcake marzipan. Pie gingerbread cheesecake jelly beans. Jujubes icing bonbon chocolate bar. Marzipan lemon drops cheesecake. Candy cupcake wafer sugar plum bonbon danish halvah. Chocolate cake pudding dessert icing liquorice cupcake dessert sesame snaps. Chocolate toffee caramels.</p>
 
-                    <div>Start quicly</div>
+          <div>Start quicly</div>
 
-                    <a href="#/search" id="createNewDinnerButton" class="btn btn-primary">Create new dinner</a>
-                </div>
-            </div>
+          <a href="#/search" id="createNewDinnerButton" class="btn btn-primary" ng-click="setCSS()">Create new dinner</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </div>
 <!--End of home screen-->
