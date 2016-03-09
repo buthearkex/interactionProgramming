@@ -2,18 +2,21 @@
 
 <!--recipe-->
 <div id="printableRecipe" class="container-fluid">
-  <div id="recipe-container">
-    <div class='row recip' ng-repeat="dish in getMenu">
-      <div class='col-md-5'>
-        <img class='food-pic' ng-src="{{dish.ImageURL}}">
-        <h3>{{dish.Title}}</h3>
-        <p>{{dish.Description}}</p>
-      </div>
-      <div class='col-md-7'>
-        <h4>PREPARATION</h4>
-        <p>{{dish.Instructions}}</p>
-      </div>
+    <div id="recipe-container">
+        <div ng-show="!getMenu.length">
+            No dishes selected!
+        </div>
+        <div class='row recip' ng-repeat="dish in getMenu">
+            <div class='col-md-5'>
+                <img class='food-pic' ng-src="{{dish.ImageURL}}">
+                <h3>{{dish.Title}}</h3>
+                <p>{{dish.Description}}</p>
+            </div>
+            <div class='col-md-7'>
+                <h4>PREPARATION</h4>
+                <p>{{dish.Instructions}}</p>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <!--end of recipe-->

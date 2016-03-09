@@ -2,54 +2,42 @@
 // display or modify the dinner menu
 dinnerPlannerApp.controller('DinnerCtrl', function ($scope, Dinner) {
 
-  $scope.firstTime = true;
+    $scope.firstTime = true;
 
-  $scope.numberOfGuests = Dinner.getNumberOfGuests();
+    $scope.numberOfGuests = Dinner.getNumberOfGuests();
 
-  $scope.fullMenu = Dinner.getFullMenu();
+    $scope.fullMenu = Dinner.getFullMenu();
 
-  $scope.setNumberOfGuest = function (number) {
-    Dinner.setNumberOfGuests(number);
-  }
-
-  $scope.getTotalMenuPrice = function () {
-    return Dinner.getTotalMenuPrice();
-  }
-
-  $scope.getDishPrice = function (data) {
-    return Dinner.getPriceOfDish(data);
-  }
-
-  $scope.removeDish = function (id) {
-    Dinner.removeDishFromMenu(id);
-  }
-
-  /*$scope.init = function () {
-    
-  }*/
-
-  $scope.init = function (query) {
-    if ($scope.firstTime) {
-      $scope.status = "updating...";
-      Dinner.load();
-      $scope.status = "updated!";
-      $scope.firstTime = false;
+    $scope.setNumberOfGuest = function (number) {
+        Dinner.setNumberOfGuests(number);
     }
-  }
 
-  $scope.setCSS = function () {
-    if ($('#wrapper').css('padding-left') == '250px') {
-      $("#wrapper").css('padding-left', '0px');
-    } else {
-      $("#wrapper").css('padding-left', '250px');
+    $scope.getTotalMenuPrice = function () {
+        return Dinner.getTotalMenuPrice();
     }
-  }
 
-  $scope.setPadding = function () {
-    $("#wrapper").css('padding-left', '0px');
-  }
+    $scope.getDishPrice = function (data) {
+        return Dinner.getPriceOfDish(data);
+    }
 
-  // TODO in Lab 5: Implement the methods to get the dinner menu
-  // add dish to menu and get total menu price
+    $scope.removeDish = function (id) {
+        Dinner.removeDishFromMenu(id);
+    }
+
+    /*$scope.init = function () {
+      
+    }*/
+
+    $scope.init = function (query) {
+        if ($scope.firstTime) {
+            $scope.status = "updating...";
+            Dinner.load();
+            $scope.status = "updated!";
+            $scope.firstTime = false;
+        }
+    }
+
+    // TODO in Lab 5: Implement the methods to get the dinner menu
+    // add dish to menu and get total menu price
 
 });

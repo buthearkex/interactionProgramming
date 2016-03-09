@@ -6,27 +6,26 @@ not support it in free version) and list all the dishes that match the search. -
 
 <!--list of dishes-->
 <div id="list-of-dishes" class="container-fluid">
-  <!--Loading image-->
-  <div id="loading" ng-show="status == 'Searching...'">
-    <img id="loading-image" src="images/Annoying_Dog.gif" alt="Loading..." />
-  </div>
-  <div class="row">
-    <div class="col-xs-12 search-heading">
-      <h3>Select Dish</h3>
-      <div class="line"></div>
-      <input type="search" class="deletable" ng-model="query">
-      <button type="button" class="btn btn-default" ng-click="search(query)">Search</button>
+    <!--Loading image-->
+    <div id="loading" ng-show="status == 'Searching...'">
+        <img id="loading-image" src="images/Annoying_Dog.gif" alt="Loading..." />
     </div>
-  </div>
-  <div id="allDishes" class="row foods-list" ng-init="search(pizza)">
-    {{status}}
-    <div class='col-md-4' ng-repeat="dish in dishes">
-      <a class='food-link' ng-href="#/dish/{{dish.RecipeID}}">
-        <img class='img-responsive food-pic' ng-src="{{dish.ImageURL}}">
-        <h2>{{dish.Title}}</h2>
-        <!--{{dish.Category}} {{dish.Subcategory}}-->
-      </a>
+    <div class="row">
+        <div class="col-xs-12 search-heading">
+            <h3>Select Dish</h3>
+            <div class="line"></div>
+            <input type="search" class="deletable" ng-model="query">
+            <button type="button" class="btn btn-default" ng-click="search(query)">Search</button>
+        </div>
     </div>
-  </div>
+    <div id="allDishes" class="row foods-list" ng-init="search(pizza)">
+        <div class='col-md-4' ng-repeat="dish in dishes">
+            <a class='food-link' ng-href="#/dish/{{dish.RecipeID}}">
+                <img class='img-responsive food-pic' ng-src="{{dish.ImageURL}}">
+                <h2>{{dish.Title}}</h2>
+                <!--{{dish.Category}} {{dish.Subcategory}}-->
+            </a>
+        </div>
+    </div>
 </div>
 <!--end of list of dishes-->
