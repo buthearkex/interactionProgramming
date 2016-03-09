@@ -178,7 +178,7 @@
 }
 .foods-list {
   z-index: 1;
-  padding-top: 150px;
+  padding-top: 170px;
 }
 .right {
   float: right;
@@ -318,4 +318,8 @@ span.deleteicon span {
 }
 span.deleteicon input {
   padding-right: 16px;
+}
+.big-pic {
+  width: 200px;
+  height: 200px;
 }

@@ -2,6 +2,8 @@
 // display or modify the dinner menu
 dinnerPlannerApp.controller('DinnerCtrl', function ($scope, Dinner) {
 
+  $scope.firstTime = true;
+
   $scope.numberOfGuests = Dinner.getNumberOfGuests();
 
   $scope.fullMenu = Dinner.getFullMenu();
@@ -23,21 +25,26 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope, Dinner) {
   }
 
   /*$scope.init = function () {
-  Dinner.getFullIDs.forEach(ids) {
-    Dinner.Dish.get({
-      id: ids
-    }, function (data) {
-      $scope.dish = data;
-      $scope.getTotalPrice = function () {
-        return Dinner.getPriceOfDish($scope.dish);
-      }
-      $scope.status = "Showing result";
-    }, function (data) {
-      $scope.status = "There was an error";
-    });
+    
+  }*/
+
+  $scope.init = function (query) {
+    if ($scope.firstTime) {
+      $scope.status = "updating...";
+      Dinner.load();
+      $scope.status = "updated!";
+      $scope.firstTime = false;
+    }
   }
-}*/
-  
+
+  $scope.setCSS = function () {
+    if ($('#wrapper').css('padding-left') == '250px') {
+      $("#wrapper").css('padding-left', '0px');
+    } else {
+      $("#wrapper").css('padding-left', '250px');
+    }
+  }
+
   // TODO in Lab 5: Implement the methods to get the dinner menu
   // add dish to menu and get total menu price
 
